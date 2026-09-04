@@ -12,4 +12,4 @@ First public Phase 0/1 release.
 
 ## Unreleased
 
-- (empty — next work tracks Phase 2+ in `TASKS.md`)
+- (empty — next work tracks Phase 2+ in `docs/TASKS.md`)

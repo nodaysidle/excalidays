@@ -41,7 +41,7 @@
 
 ## P2 — Evidence and truthful status
 
-- [ ] Update `TASKS.md`; its Phase 0/1 statuses are stale.
+- [ ] Update `docs/TASKS.md`; its Phase 0/1 statuses are stale.
 - [ ] Update `docs/verification/2026-09-02-phase-0.md` with exact successful commands, test totals, package checks, screenshots, and current blockers.
 - [ ] Add Phase 1 verification evidence for the lossless round trip and native document lifecycle.
 - [ ] Record Debug and packaged Release screenshots under `docs/screenshots/`.

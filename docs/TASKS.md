@@ -1,6 +1,6 @@
 # Excalidays Tasks and Evidence
 
-**Authority:** 4 of 5. PRD.md, ARD.md, and TRD.md override this file. Status values: DONE, PARTIAL, BLOCKED, NOT STARTED.
+**Authority:** 4 of 5. docs/specs/PRD.md, docs/specs/ARD.md, and docs/specs/TRD.md override this file. Status values: DONE, PARTIAL, BLOCKED, NOT STARTED.
 
 ## Phase 0 — Research, contracts, native shell
 - DONE — Environment inspection and local Git initialization recorded in `docs/verification/2026-09-02-phase-0.md`.

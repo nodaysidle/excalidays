@@ -1,6 +1,6 @@
 # Excalidays Technical Requirements
 
-**Authority:** 3 of 5. PRD.md and ARD.md override this file; this file overrides TASKS.md and AGENTS.md.
+**Authority:** 3 of 5. docs/specs/PRD.md and docs/specs/ARD.md override this file; this file overrides docs/TASKS.md and docs/AGENTS.md.
 
 ## Toolchain and dependencies
 - Xcode 26.6 (17F113), Swift compiler 6.3.3, Swift language mode 6, complete strict concurrency.

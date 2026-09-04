@@ -1,6 +1,6 @@
 # Excalidays Architecture Requirements
 
-**Authority:** 2 of 5. PRD.md overrides this file; this file overrides TRD.md, TASKS.md, and AGENTS.md.
+**Authority:** 2 of 5. docs/specs/PRD.md overrides this file; this file overrides docs/specs/TRD.md, docs/TASKS.md, and docs/AGENTS.md.
 
 ## Architecture decision
 Use Swift 6 strict concurrency, AppKit document architecture, SwiftUI native surfaces, focused AppKit integration, SwiftData metadata, PDFKit/Core Graphics, UniformTypeIdentifiers, and one offline `WKWebView` canvas per open document.

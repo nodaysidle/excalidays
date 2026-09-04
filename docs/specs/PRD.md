@@ -1,6 +1,6 @@
 # Excalidays Product Requirements Document
 
-**Authority:** 1 of 5. This file overrides ARD.md, TRD.md, TASKS.md, and AGENTS.md.
+**Authority:** 1 of 5. This file overrides docs/specs/ARD.md, docs/specs/TRD.md, docs/TASKS.md, and docs/AGENTS.md.
 
 ## Product promise
 Excalidays is a local-first native macOS document application for creating, opening, editing, organizing, importing, versioning, and exporting Excalidraw drawings. The application behaves like an Apple document app; the official Excalidraw package is an isolated local canvas engine, not the application shell.
@@ -52,7 +52,7 @@ Accounts, cloud sync, collaboration, shared links, analytics, AI drawing, mobile
 Native shell controls provide labels, focus, keyboard access, semantic colors, reduced-motion behavior, and light/dark appearance. Canvas accessibility is reported separately and is never inferred from native-shell compliance.
 
 ## Success criteria
-A phase is complete only when its focused tests pass, the app builds, its workflow is personally exercised, and TASKS.md links dated evidence. Placeholder UI is not completion.
+A phase is complete only when its focused tests pass, the app builds, its workflow is personally exercised, and docs/TASKS.md links dated evidence. Placeholder UI is not completion.
 
 ## Licensing
 The Excalidays application license is owner-controlled and intentionally undecided. This does not block local development. Excalidraw and bundled third-party notices must be preserved.

@@ -1,13 +1,13 @@
 # Excalidays Agent Contract
 
-**Authority:** 5 of 5. Every implementation agent MUST read, in order, `PRD.md`, `ARD.md`, `TRD.md`, `TASKS.md`, and this file before editing.
+**Authority:** 5 of 5. Every implementation agent MUST read, in order, `docs/specs/PRD.md`, `docs/specs/ARD.md`, `docs/specs/TRD.md`, `docs/TASKS.md`, and this file before editing.
 
 ## Scope
 Work only inside `/Volumes/omarchyuser/projekti/excalidays`. Preserve user files. No commit, push, remote, `/Applications` install, sudo, Homebrew mutation, Developer ID signing, notarization, credential search, or secret inspection without explicit owner authorization.
 
 ## Execution
 1. Re-read the authority cascade before each phase.
-2. Keep TASKS.md truthful with DONE/PARTIAL/BLOCKED/NOT STARTED and evidence.
+2. Keep docs/TASKS.md truthful with DONE/PARTIAL/BLOCKED/NOT STARTED and evidence.
 3. Use TDD: write focused failing test, run and observe expected failure, implement minimally, rerun focused and broad tests.
 4. On failure, reproduce and identify root cause before patching.
 5. Use official current Apple and Excalidraw sources; installed package declarations override stale examples.
