@@ -1,0 +1,80 @@
+name: Excalidays
+options:
+  bundleIdPrefix: com.nodaysidle
+  deploymentTarget:
+    macOS: "14.0"
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    CLANG_ENABLE_MODULES: YES
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGN_IDENTITY: "-"
+targets:
+  Excalidays:
+    type: application
+    platform: macOS
+    sources:
+      - path: Excalidays
+        excludes:
+          - Resources/Info.plist
+          - Resources/Excalidays.entitlements
+          - Resources/ExcalidrawCanvas
+      - path: Excalidays/Resources/ExcalidrawCanvas
+        type: folder
+        buildPhase: resources
+    entitlements:
+      path: Excalidays/Resources/Excalidays.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.files.user-selected.read-write: true
+        com.apple.security.files.bookmarks.app-scope: true
+        com.apple.security.cs.allow-jit: true
+        com.apple.security.network.client: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nodaysidle.excalidays
+        PRODUCT_NAME: Excalidays
+        INFOPLIST_FILE: Excalidays/Resources/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        CODE_SIGN_ENTITLEMENTS: Excalidays/Resources/Excalidays.entitlements
+        ENABLE_HARDENED_RUNTIME: NO
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+  ExcalidaysTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - ExcalidaysTests
+    dependencies:
+      - target: Excalidays
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nodaysidle.excalidays.tests
+        GENERATE_INFOPLIST_FILE: YES
+  ExcalidaysUITests:
+    type: bundle.ui-testing
+    platform: macOS
+    sources:
+      - ExcalidaysUITests
+    dependencies:
+      - target: Excalidays
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nodaysidle.excalidays.uitests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  Excalidays:
+    build:
+      targets:
+        Excalidays: all
+        ExcalidaysTests: [test]
+        ExcalidaysUITests: [test]
+    test:
+      targets:
+        - ExcalidaysTests
+        - ExcalidaysUITests
+    run:
+      config: Debug
+    archive:
+      config: Release

@@ -1,0 +1,21 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "fixture-source",
+  "elements": [],
+  "appState": {
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {
+    "fixture-file": {
+      "mimeType": "image/png",
+      "id": "fixture-file",
+      "dataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=",
+      "created": 0,
+      "lastRetrieved": 0
+    }
+  },
+  "futureField": {
+    "preserve": true
+  }
+}

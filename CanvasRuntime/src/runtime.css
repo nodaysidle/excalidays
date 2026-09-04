@@ -1,0 +1,273 @@
+html,
+body,
+#root,
+.canvas-host {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  background: Canvas;
+  color-scheme: light dark;
+}
+
+.canvas-host:focus-visible {
+  outline: 2px solid Highlight;
+  outline-offset: -2px;
+}
+
+/* ==========================================================================
+   Authentic Excalidraw Design System
+   Natural, calm, paper-feel aesthetic matching excalidraw.com
+   ========================================================================== */
+
+.excalidraw {
+  --color-primary: #6965db !important;
+  --color-primary-darker: #5753d0 !important;
+  --color-primary-darkest: #4440bf !important;
+  --color-primary-light: #f1f0ff !important;
+  --color-primary-hover: #5753d0 !important;
+}
+
+.excalidraw.theme--dark {
+  --color-primary: #a8a5ff !important;
+  --color-primary-darker: #b2aeff !important;
+  --color-primary-darkest: #beb9ff !important;
+  --color-primary-light: #403e6a !important;
+  --color-primary-hover: #bbb8ff !important;
+  --island-bg-color: #232329 !important;
+  --default-bg-color: #121212 !important;
+}
+
+/* ==========================================================================
+   Light Mode: Floating Surfaces & Controls
+   ========================================================================== */
+
+.excalidraw:not(.theme--dark) .App-toolbar,
+.excalidraw:not(.theme--dark) .Island,
+.excalidraw:not(.theme--dark) .main-menu-trigger,
+.excalidraw:not(.theme--dark) .dropdown-menu-container,
+.excalidraw:not(.theme--dark) .layer-ui__wrapper .sidebar {
+  background: #ffffff !important;
+  border: 1px solid #e0e0e0 !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 8px !important;
+}
+
+.excalidraw:not(.theme--dark) .ToolIcon svg,
+.excalidraw:not(.theme--dark) .App-toolbar svg,
+.excalidraw:not(.theme--dark) .main-menu-trigger svg,
+.excalidraw:not(.theme--dark) .sidebar svg {
+  color: #1b1b1f !important;
+  fill: currentColor !important;
+}
+
+.excalidraw:not(.theme--dark) .ToolIcon .ToolIcon__keybinding {
+  color: #868e96 !important;
+}
+
+.excalidraw:not(.theme--dark) .ToolIcon .ToolIcon__icon:hover,
+.excalidraw:not(.theme--dark) .main-menu-trigger:hover,
+.excalidraw:not(.theme--dark) .ToolIcon_type_button:hover {
+  background: #ececf4 !important;
+}
+
+.excalidraw:not(.theme--dark) .ToolIcon_type_radio:checked + label,
+.excalidraw:not(.theme--dark) .ToolIcon_type_radio:checked + .ToolIcon__icon,
+.excalidraw:not(.theme--dark) .ToolIcon_type_button.active {
+  background: #e0dfff !important;
+  border: 1px solid #6965db !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+
+.excalidraw:not(.theme--dark) .ToolIcon_type_radio:checked + label svg,
+.excalidraw:not(.theme--dark) .ToolIcon_type_radio:checked + .ToolIcon__icon svg,
+.excalidraw:not(.theme--dark) .ToolIcon_type_button.active svg {
+  color: #6965db !important;
+  fill: currentColor !important;
+}
+
+.excalidraw:not(.theme--dark) .buttonList label,
+.excalidraw:not(.theme--dark) .buttonList button,
+.excalidraw:not(.theme--dark) .ToolIcon_type_button:not(.active) {
+  background: #f8f9fa !important;
+  border: 1px solid #dee2e6 !important;
+  color: #212529 !important;
+  border-radius: 6px !important;
+}
+
+.excalidraw:not(.theme--dark) .buttonList label:hover,
+.excalidraw:not(.theme--dark) .buttonList button:hover {
+  background: #ececf4 !important;
+}
+
+.excalidraw:not(.theme--dark) .buttonList label.active,
+.excalidraw:not(.theme--dark) .buttonList input:checked + label {
+  background: #e0dfff !important;
+  border: 1px solid #6965db !important;
+  color: #6965db !important;
+}
+
+/* ==========================================================================
+   Dark Mode: Floating Surfaces & Controls
+   ========================================================================== */
+
+.excalidraw.theme--dark .App-toolbar,
+.excalidraw.theme--dark .Island,
+.excalidraw.theme--dark .main-menu-trigger,
+.excalidraw.theme--dark .dropdown-menu-container,
+.excalidraw.theme--dark .layer-ui__wrapper .sidebar {
+  background: #232329 !important;
+  border: 1px solid #313138 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 8px !important;
+}
+
+.excalidraw.theme--dark,
+.excalidraw.theme--dark .App-toolbar,
+.excalidraw.theme--dark .layer-ui__wrapper,
+.excalidraw.theme--dark .sidebar {
+  --color-on-surface: #e3e3e8 !important;
+  --icon-fill-color: #e3e3e8 !important;
+  --keybinding-color: #868e96 !important;
+  --button-hover-bg: #313138 !important;
+  color: #e3e3e8 !important;
+}
+
+/* Tool icons in dark mode */
+.excalidraw.theme--dark .ToolIcon svg,
+.excalidraw.theme--dark .App-toolbar svg,
+.excalidraw.theme--dark .main-menu-trigger svg,
+.excalidraw.theme--dark .sidebar svg,
+.excalidraw.theme--dark .dropdown-menu-item svg {
+  color: #e3e3e8 !important;
+  fill: currentColor !important;
+}
+
+/* Tool shortcut numbers in dark mode */
+.excalidraw.theme--dark .ToolIcon .ToolIcon__keybinding {
+  color: #868e96 !important;
+}
+
+/* Tool icon hover in dark mode */
+.excalidraw.theme--dark .ToolIcon .ToolIcon__icon:hover,
+.excalidraw.theme--dark .main-menu-trigger:hover,
+.excalidraw.theme--dark .ToolIcon_type_button:hover {
+  background: #313138 !important;
+}
+
+.excalidraw.theme--dark .ToolIcon .ToolIcon__icon:hover svg,
+.excalidraw.theme--dark .main-menu-trigger:hover svg {
+  color: #ffffff !important;
+  fill: currentColor !important;
+}
+
+/* Active tool in dark mode (authentic Excalidraw active tool) */
+.excalidraw.theme--dark .ToolIcon_type_radio:checked + label,
+.excalidraw.theme--dark .ToolIcon_type_radio:checked + .ToolIcon__icon,
+.excalidraw.theme--dark .ToolIcon_type_button.active {
+  background: #403e6a !important;
+  border: 1px solid #a8a5ff !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+
+.excalidraw.theme--dark .ToolIcon_type_radio:checked + label svg,
+.excalidraw.theme--dark .ToolIcon_type_radio:checked + .ToolIcon__icon svg,
+.excalidraw.theme--dark .ToolIcon_type_button.active svg {
+  color: #e0dfff !important;
+  fill: currentColor !important;
+}
+
+.excalidraw.theme--dark .ToolIcon_type_radio:checked + label .ToolIcon__keybinding,
+.excalidraw.theme--dark .ToolIcon_type_radio:checked + .ToolIcon__icon .ToolIcon__keybinding {
+  color: #e0dfff !important;
+}
+
+/* Sidebar in dark mode */
+.excalidraw.theme--dark .sidebar .control-label,
+.excalidraw.theme--dark .sidebar legend,
+.excalidraw.theme--dark .sidebar label,
+.excalidraw.theme--dark .sidebar h3,
+.excalidraw.theme--dark .sidebar h4,
+.excalidraw.theme--dark .sidebar span {
+  color: #e3e3e8 !important;
+}
+
+.excalidraw.theme--dark .buttonList label,
+.excalidraw.theme--dark .buttonList button,
+.excalidraw.theme--dark .ToolIcon_type_button:not(.active) {
+  background: #2a2a32 !important;
+  border: 1px solid #363640 !important;
+  color: #e3e3e8 !important;
+  border-radius: 6px !important;
+}
+
+.excalidraw.theme--dark .buttonList label:hover,
+.excalidraw.theme--dark .buttonList button:hover {
+  background: #363640 !important;
+  color: #ffffff !important;
+}
+
+.excalidraw.theme--dark .buttonList label.active,
+.excalidraw.theme--dark .buttonList input:checked + label {
+  background: #403e6a !important;
+  border: 1px solid #a8a5ff !important;
+  color: #e0dfff !important;
+}
+
+/* Dropdown menu container & items */
+.excalidraw .dropdown-menu {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.excalidraw .dropdown-menu-container {
+  padding: 6px !important;
+}
+
+.excalidraw .dropdown-menu-item {
+  border-radius: 6px !important;
+  padding: 0 10px !important;
+  height: 2.1rem !important;
+}
+
+.excalidraw:not(.theme--dark) .dropdown-menu-item {
+  color: #1b1b1f !important;
+}
+
+.excalidraw:not(.theme--dark) .dropdown-menu-item:hover,
+.excalidraw:not(.theme--dark) .dropdown-menu-item--hovered {
+  background-color: #ececf4 !important;
+  color: #000000 !important;
+}
+
+.excalidraw.theme--dark .dropdown-menu-item {
+  color: #e3e3e8 !important;
+}
+
+.excalidraw.theme--dark .dropdown-menu-item:hover,
+.excalidraw.theme--dark .dropdown-menu-item--hovered {
+  background-color: #313138 !important;
+  color: #ffffff !important;
+}
+
+.excalidraw.theme--dark .dropdown-menu hr,
+.excalidraw.theme--dark .dropdown-menu .separator {
+  border-color: #313138 !important;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

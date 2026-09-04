@@ -1,0 +1,19 @@
+.DS_Store
+DerivedData/
+.build/
+build/
+Artifacts/*.app
+Artifacts/*.dmg
+Artifacts/*.zip
+Artifacts/*.xcarchive
+CanvasRuntime/node_modules/
+CanvasRuntime/dist/
+CanvasRuntime/coverage/
+*.xcuserstate
+xcuserdata/
+.env
+.env.*
+!.env.example
+
+# Packaged release artifacts (DMG goes to GitHub Releases only)
+dist/

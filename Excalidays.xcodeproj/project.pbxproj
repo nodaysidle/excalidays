@@ -1,0 +1,645 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08B27C3548719C7EB6AEEDE9 /* CanvasSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7732A454B42EB48EC1046 /* CanvasSession.swift */; };
+		0C12EC968FC8DFF4B8AEC197 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197A1C501C2AD2F3035CD715 /* SettingsView.swift */; };
+		16C1640688D8782766372953 /* CanvasBridgeMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E14B3B4963DE1FF4D0D58 /* CanvasBridgeMessageTests.swift */; };
+		1AD7AE3ECD4657B56ABC1FA9 /* CanvasRuntimeIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1375E724DF517086637C5 /* CanvasRuntimeIntegrationTests.swift */; };
+		24448A291E2BFBF92AB677EF /* ExcalidaysLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9878A199C77DA0D65C1A2A0D /* ExcalidaysLaunchTests.swift */; };
+		2E9D7E8A961999F34DA39C0F /* CanvasBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD9676FA1CDFC465B48821 /* CanvasBridge.swift */; };
+		34375E3B18AE8F2FA8C96E89 /* DocumentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4D1ACF6246107DC40C037 /* DocumentErrors.swift */; };
+		38FEEDA6B7C175B3340418AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9575D9CA94DBFACDAE604892 /* AppDelegate.swift */; };
+		3CEA7F9E5F4D375AE48FB1E9 /* DocumentContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D371BC8E662EEC168D7CF165 /* DocumentContentView.swift */; };
+		5669C8B7EDB369F781B544A1 /* DocumentWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2430D33D95A03A72102F4F7 /* DocumentWindowController.swift */; };
+		685C3F3314EA0209D0F3649C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A3544CC7FCA72F98807ED /* AppCoordinator.swift */; };
+		6E615FFDB4EF96A434F4F825 /* ExcalidrawCanvas in Resources */ = {isa = PBXBuildFile; fileRef = 9827CE7AA35B3A4D9DB49F9A /* ExcalidrawCanvas */; };
+		6F018337FFEE03FFF51226A9 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167CA8165773CF6F825FC4D6 /* CanvasView.swift */; };
+		715A6CBB8121738122E9B5A7 /* DocumentRoundTripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A42D8A8C2EABCFDADC9E6 /* DocumentRoundTripTests.swift */; };
+		76433336C45A6FFF84311445 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7C82C9DB335E035F053B5 /* LibraryView.swift */; };
+		7AC264D0E8EECA8CA4699D4C /* CanvasURLPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913F4F0A958869F0AED3131 /* CanvasURLPolicyTests.swift */; };
+		9B5D305EA785518DC725C120 /* CanvasBridgeMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B030215DF5F9CD605F94E1 /* CanvasBridgeMessage.swift */; };
+		A5E4B81FC14E2B4DC390ECAC /* CanvasAssetSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BADDF59E30648BCA00EC8D /* CanvasAssetSchemeHandler.swift */; };
+		B3169511F16618A44144A153 /* SceneEnvelopeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9C066FC6D8E06655F766E /* SceneEnvelopeTests.swift */; };
+		B3D0678327CAC6955899D81C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6C61AB252A42936D370B359 /* Assets.xcassets */; };
+		D18CE1B110BB5990570DA8B3 /* ExcalidaysDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28CDF58D0D73478104E1AF /* ExcalidaysDocument.swift */; };
+		D6ED33914CB9F8532B284F5B /* DocumentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568B42AE91982EF8A41387D /* DocumentTypes.swift */; };
+		DECE1A922CF6D7EE56C7DDCB /* DocumentControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F459B8BD0A8EB9A96B2ADC /* DocumentControllerTests.swift */; };
+		F0AB64702D59EF980DFF1B02 /* CanvasURLPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7CE2871662BBF289A240F1 /* CanvasURLPolicy.swift */; };
+		FEFE45D8F8DFF9547B4D5176 /* LibraryWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15D68D318528340D58998CF /* LibraryWindowController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		010D406060BF2333E4FDC93F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74A1F470037F3B0669AD8EA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AB1BCD83D0F8B3171422D67;
+			remoteInfo = Excalidays;
+		};
+		6FD741EDEF406E1A2C1C5B12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74A1F470037F3B0669AD8EA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AB1BCD83D0F8B3171422D67;
+			remoteInfo = Excalidays;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0A9E14B3B4963DE1FF4D0D58 /* CanvasBridgeMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasBridgeMessageTests.swift; sourceTree = "<group>"; };
+		14B030215DF5F9CD605F94E1 /* CanvasBridgeMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasBridgeMessage.swift; sourceTree = "<group>"; };
+		167CA8165773CF6F825FC4D6 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		16DD9676FA1CDFC465B48821 /* CanvasBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasBridge.swift; sourceTree = "<group>"; };
+		197A1C501C2AD2F3035CD715 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1D4A3544CC7FCA72F98807ED /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		21DCCBCF2933328018BBCB54 /* Excalidays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Excalidays.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		38A9C066FC6D8E06655F766E /* SceneEnvelopeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneEnvelopeTests.swift; sourceTree = "<group>"; };
+		50F459B8BD0A8EB9A96B2ADC /* DocumentControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentControllerTests.swift; sourceTree = "<group>"; };
+		5C7CE2871662BBF289A240F1 /* CanvasURLPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasURLPolicy.swift; sourceTree = "<group>"; };
+		68BADDF59E30648BCA00EC8D /* CanvasAssetSchemeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasAssetSchemeHandler.swift; sourceTree = "<group>"; };
+		6913F4F0A958869F0AED3131 /* CanvasURLPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasURLPolicyTests.swift; sourceTree = "<group>"; };
+		72B4D1ACF6246107DC40C037 /* DocumentErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentErrors.swift; sourceTree = "<group>"; };
+		7C8A42D8A8C2EABCFDADC9E6 /* DocumentRoundTripTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRoundTripTests.swift; sourceTree = "<group>"; };
+		7DD1375E724DF517086637C5 /* CanvasRuntimeIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasRuntimeIntegrationTests.swift; sourceTree = "<group>"; };
+		9575D9CA94DBFACDAE604892 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		95C7732A454B42EB48EC1046 /* CanvasSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasSession.swift; sourceTree = "<group>"; };
+		9827CE7AA35B3A4D9DB49F9A /* ExcalidrawCanvas */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ExcalidrawCanvas; path = Excalidays/Resources/ExcalidrawCanvas; sourceTree = SOURCE_ROOT; };
+		9878A199C77DA0D65C1A2A0D /* ExcalidaysLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcalidaysLaunchTests.swift; sourceTree = "<group>"; };
+		A568B42AE91982EF8A41387D /* DocumentTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTypes.swift; sourceTree = "<group>"; };
+		AC28CDF58D0D73478104E1AF /* ExcalidaysDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcalidaysDocument.swift; sourceTree = "<group>"; };
+		B1F7C82C9DB335E035F053B5 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		B2430D33D95A03A72102F4F7 /* DocumentWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentWindowController.swift; sourceTree = "<group>"; };
+		C6C61AB252A42936D370B359 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0FB85DCFA74871D39729567 /* ExcalidaysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExcalidaysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D371BC8E662EEC168D7CF165 /* DocumentContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentContentView.swift; sourceTree = "<group>"; };
+		E6F85998AC2447BF3E8EC01D /* ExcalidaysUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExcalidaysUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F15D68D318528340D58998CF /* LibraryWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryWindowController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		08C9334F3AAC1CC2B2636A3B = {
+			isa = PBXGroup;
+			children = (
+				9827CE7AA35B3A4D9DB49F9A /* ExcalidrawCanvas */,
+				DA0C6B4793ACC2C214AE10B4 /* Excalidays */,
+				08EE7C30DAB81F2A1D390E05 /* ExcalidaysTests */,
+				28C575942C0BC08DE9B73CCB /* ExcalidaysUITests */,
+				A0459600AE9A32093C704A87 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		08EE7C30DAB81F2A1D390E05 /* ExcalidaysTests */ = {
+			isa = PBXGroup;
+			children = (
+				0A9E14B3B4963DE1FF4D0D58 /* CanvasBridgeMessageTests.swift */,
+				7DD1375E724DF517086637C5 /* CanvasRuntimeIntegrationTests.swift */,
+				6913F4F0A958869F0AED3131 /* CanvasURLPolicyTests.swift */,
+				50F459B8BD0A8EB9A96B2ADC /* DocumentControllerTests.swift */,
+				7C8A42D8A8C2EABCFDADC9E6 /* DocumentRoundTripTests.swift */,
+				38A9C066FC6D8E06655F766E /* SceneEnvelopeTests.swift */,
+			);
+			path = ExcalidaysTests;
+			sourceTree = "<group>";
+		};
+		28C575942C0BC08DE9B73CCB /* ExcalidaysUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9878A199C77DA0D65C1A2A0D /* ExcalidaysLaunchTests.swift */,
+			);
+			path = ExcalidaysUITests;
+			sourceTree = "<group>";
+		};
+		2EBEB0BC219B2DA991F3E174 /* Canvas */ = {
+			isa = PBXGroup;
+			children = (
+				68BADDF59E30648BCA00EC8D /* CanvasAssetSchemeHandler.swift */,
+				16DD9676FA1CDFC465B48821 /* CanvasBridge.swift */,
+				14B030215DF5F9CD605F94E1 /* CanvasBridgeMessage.swift */,
+				95C7732A454B42EB48EC1046 /* CanvasSession.swift */,
+				5C7CE2871662BBF289A240F1 /* CanvasURLPolicy.swift */,
+				167CA8165773CF6F825FC4D6 /* CanvasView.swift */,
+			);
+			path = Canvas;
+			sourceTree = "<group>";
+		};
+		630C458201FB89F7050BEF06 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				B1F7C82C9DB335E035F053B5 /* LibraryView.swift */,
+				F15D68D318528340D58998CF /* LibraryWindowController.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		8DF2407BA8F50FE4E84A803B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				1D4A3544CC7FCA72F98807ED /* AppCoordinator.swift */,
+				9575D9CA94DBFACDAE604892 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		968856D0738B6525EAF0EB69 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C6C61AB252A42936D370B359 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A0459600AE9A32093C704A87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21DCCBCF2933328018BBCB54 /* Excalidays.app */,
+				D0FB85DCFA74871D39729567 /* ExcalidaysTests.xctest */,
+				E6F85998AC2447BF3E8EC01D /* ExcalidaysUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBFC42B03A40597CDB8E1FAE /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				197A1C501C2AD2F3035CD715 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DA0C6B4793ACC2C214AE10B4 /* Excalidays */ = {
+			isa = PBXGroup;
+			children = (
+				8DF2407BA8F50FE4E84A803B /* Application */,
+				2EBEB0BC219B2DA991F3E174 /* Canvas */,
+				FC0434CDFD30056FBD643D1D /* Documents */,
+				630C458201FB89F7050BEF06 /* Library */,
+				968856D0738B6525EAF0EB69 /* Resources */,
+				BBFC42B03A40597CDB8E1FAE /* Settings */,
+			);
+			path = Excalidays;
+			sourceTree = "<group>";
+		};
+		FC0434CDFD30056FBD643D1D /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				D371BC8E662EEC168D7CF165 /* DocumentContentView.swift */,
+				72B4D1ACF6246107DC40C037 /* DocumentErrors.swift */,
+				A568B42AE91982EF8A41387D /* DocumentTypes.swift */,
+				B2430D33D95A03A72102F4F7 /* DocumentWindowController.swift */,
+				AC28CDF58D0D73478104E1AF /* ExcalidaysDocument.swift */,
+			);
+			path = Documents;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0AB1BCD83D0F8B3171422D67 /* Excalidays */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0EF1491BBE93E7FF2847E44 /* Build configuration list for PBXNativeTarget "Excalidays" */;
+			buildPhases = (
+				086360B603A46A74BEE1291B /* Sources */,
+				EEFB1255C8619AA99389ADEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Excalidays;
+			packageProductDependencies = (
+			);
+			productName = Excalidays;
+			productReference = 21DCCBCF2933328018BBCB54 /* Excalidays.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3AB5C13B5E32F00B80455849 /* ExcalidaysTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D916418F9FEAD35EC091E20C /* Build configuration list for PBXNativeTarget "ExcalidaysTests" */;
+			buildPhases = (
+				D6BD65D3256C7CB6EE9FCC4A /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBEF8788FF24243167184B9E /* PBXTargetDependency */,
+			);
+			name = ExcalidaysTests;
+			packageProductDependencies = (
+			);
+			productName = ExcalidaysTests;
+			productReference = D0FB85DCFA74871D39729567 /* ExcalidaysTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D8A169FB647D69AAE9140129 /* ExcalidaysUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F330DDFE0913033B27F5C57E /* Build configuration list for PBXNativeTarget "ExcalidaysUITests" */;
+			buildPhases = (
+				D4D6C1C4B7914ABFF1CA85E5 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21E9F9CCE76A6814BFDF5ACE /* PBXTargetDependency */,
+			);
+			name = ExcalidaysUITests;
+			packageProductDependencies = (
+			);
+			productName = ExcalidaysUITests;
+			productReference = E6F85998AC2447BF3E8EC01D /* ExcalidaysUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74A1F470037F3B0669AD8EA2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					0AB1BCD83D0F8B3171422D67 = {
+						ProvisioningStyle = Manual;
+					};
+					3AB5C13B5E32F00B80455849 = {
+						ProvisioningStyle = Manual;
+					};
+					D8A169FB647D69AAE9140129 = {
+						ProvisioningStyle = Manual;
+						TestTargetID = 0AB1BCD83D0F8B3171422D67;
+					};
+				};
+			};
+			buildConfigurationList = 2AFA9870C952A3388641B62D /* Build configuration list for PBXProject "Excalidays" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 08C9334F3AAC1CC2B2636A3B;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A0459600AE9A32093C704A87 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0AB1BCD83D0F8B3171422D67 /* Excalidays */,
+				3AB5C13B5E32F00B80455849 /* ExcalidaysTests */,
+				D8A169FB647D69AAE9140129 /* ExcalidaysUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EEFB1255C8619AA99389ADEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3D0678327CAC6955899D81C /* Assets.xcassets in Resources */,
+				6E615FFDB4EF96A434F4F825 /* ExcalidrawCanvas in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		086360B603A46A74BEE1291B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				685C3F3314EA0209D0F3649C /* AppCoordinator.swift in Sources */,
+				38FEEDA6B7C175B3340418AF /* AppDelegate.swift in Sources */,
+				A5E4B81FC14E2B4DC390ECAC /* CanvasAssetSchemeHandler.swift in Sources */,
+				2E9D7E8A961999F34DA39C0F /* CanvasBridge.swift in Sources */,
+				9B5D305EA785518DC725C120 /* CanvasBridgeMessage.swift in Sources */,
+				08B27C3548719C7EB6AEEDE9 /* CanvasSession.swift in Sources */,
+				F0AB64702D59EF980DFF1B02 /* CanvasURLPolicy.swift in Sources */,
+				6F018337FFEE03FFF51226A9 /* CanvasView.swift in Sources */,
+				3CEA7F9E5F4D375AE48FB1E9 /* DocumentContentView.swift in Sources */,
+				34375E3B18AE8F2FA8C96E89 /* DocumentErrors.swift in Sources */,
+				D6ED33914CB9F8532B284F5B /* DocumentTypes.swift in Sources */,
+				5669C8B7EDB369F781B544A1 /* DocumentWindowController.swift in Sources */,
+				D18CE1B110BB5990570DA8B3 /* ExcalidaysDocument.swift in Sources */,
+				76433336C45A6FFF84311445 /* LibraryView.swift in Sources */,
+				FEFE45D8F8DFF9547B4D5176 /* LibraryWindowController.swift in Sources */,
+				0C12EC968FC8DFF4B8AEC197 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4D6C1C4B7914ABFF1CA85E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24448A291E2BFBF92AB677EF /* ExcalidaysLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6BD65D3256C7CB6EE9FCC4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16C1640688D8782766372953 /* CanvasBridgeMessageTests.swift in Sources */,
+				1AD7AE3ECD4657B56ABC1FA9 /* CanvasRuntimeIntegrationTests.swift in Sources */,
+				7AC264D0E8EECA8CA4699D4C /* CanvasURLPolicyTests.swift in Sources */,
+				DECE1A922CF6D7EE56C7DDCB /* DocumentControllerTests.swift in Sources */,
+				715A6CBB8121738122E9B5A7 /* DocumentRoundTripTests.swift in Sources */,
+				B3169511F16618A44144A153 /* SceneEnvelopeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		21E9F9CCE76A6814BFDF5ACE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AB1BCD83D0F8B3171422D67 /* Excalidays */;
+			targetProxy = 010D406060BF2333E4FDC93F /* PBXContainerItemProxy */;
+		};
+		BBEF8788FF24243167184B9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AB1BCD83D0F8B3171422D67 /* Excalidays */;
+			targetProxy = 6FD741EDEF406E1A2C1C5B12 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		25F6140E1AEF867E6BC0CB65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Excalidays/Resources/Excalidays.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Excalidays/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nodaysidle.excalidays;
+				PRODUCT_NAME = Excalidays;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3001EE933D2E37A2E7757AA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		34A8B557F44234D850F7C8E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nodaysidle.excalidays.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Excalidays.app/Contents/MacOS/Excalidays";
+			};
+			name = Release;
+		};
+		5FB289660BE8A20DDA9CABA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		8713B9B374DAB23EBD7A151C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Excalidays/Resources/Excalidays.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Excalidays/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nodaysidle.excalidays;
+				PRODUCT_NAME = Excalidays;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A2C03A56111CCB7C1C978388 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nodaysidle.excalidays.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Excalidays.app/Contents/MacOS/Excalidays";
+			};
+			name = Debug;
+		};
+		BE0870714FBE428ECF8AC423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nodaysidle.excalidays.uitests;
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = Excalidays;
+			};
+			name = Release;
+		};
+		ECD7592F1BE5D45A684D6C6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nodaysidle.excalidays.uitests;
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = Excalidays;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2AFA9870C952A3388641B62D /* Build configuration list for PBXProject "Excalidays" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3001EE933D2E37A2E7757AA1 /* Debug */,
+				5FB289660BE8A20DDA9CABA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A0EF1491BBE93E7FF2847E44 /* Build configuration list for PBXNativeTarget "Excalidays" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8713B9B374DAB23EBD7A151C /* Debug */,
+				25F6140E1AEF867E6BC0CB65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D916418F9FEAD35EC091E20C /* Build configuration list for PBXNativeTarget "ExcalidaysTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2C03A56111CCB7C1C978388 /* Debug */,
+				34A8B557F44234D850F7C8E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F330DDFE0913033B27F5C57E /* Build configuration list for PBXNativeTarget "ExcalidaysUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECD7592F1BE5D45A684D6C6C /* Debug */,
+				BE0870714FBE428ECF8AC423 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74A1F470037F3B0669AD8EA2 /* Project object */;
+}
