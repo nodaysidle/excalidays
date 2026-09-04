@@ -5,10 +5,11 @@
   <p>New / Open <code>.excalidraw</code> → edit in a local canvas → Save. Files stay on your Mac.</p>
 
   <p>
-    <!-- Releases: update after v0.1.0 ships -->
-    <a href="#releases"><strong>Download</strong></a>
+    <a href="https://github.com/nodaysidle/excalidays/releases/download/v0.1.0/Excalidays-0.1.0.dmg"><strong>Download v0.1.0 DMG</strong></a>
     ·
-    <a href="#releases">Releases</a>
+    <a href="https://github.com/nodaysidle/excalidays/releases/tag/v0.1.0">v0.1.0 release</a>
+    ·
+    <a href="https://github.com/nodaysidle/excalidays/releases">All releases</a>
   </p>
 
   <p>
@@ -105,7 +106,8 @@ Public **v0.1.0** ships an ad-hoc signed DMG (not notarized).
 
 <!-- Updated after gh release create with the real asset URL -->
 
-- **Download:** _pending release asset URL_
+- **Download:** [`Excalidays-0.1.0.dmg`](https://github.com/nodaysidle/excalidays/releases/download/v0.1.0/Excalidays-0.1.0.dmg)
+- **Release page:** https://github.com/nodaysidle/excalidays/releases/tag/v0.1.0
 - **Tag:** `v0.1.0`
 - First launch on a fresh Mac: Control-click — **Open** — confirm (Gatekeeper + ad-hoc signature).
 
