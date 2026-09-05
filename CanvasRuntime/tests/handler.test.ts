@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi, type Mock } from "vitest";
-import type { NativeOperation } from "../src/bridge";
+import { decodeNativeRequest, type NativeOperation } from "../src/bridge";
 import { createNativeRequestHandler, EMPTY_SCENE, type NativeRequestHandlerDeps } from "../src/handler";
 import { RuntimeState } from "../src/runtimeState";
 
@@ -331,14 +331,16 @@ describe("native request handler", () => {
       element.remove();
     });
 
-    it("throws on allowlisted-but-unimplemented operations", async () => {
-      const h = makeHarness();
-      await expect(h.handler.handle(request("exportScene", {}))).rejects.toThrow(
-        "Operation exportScene is not implemented in Phase 1",
-      );
-      await expect(h.handler.handle(request("importBinaryFile", {}))).rejects.toThrow(
-        "Operation importBinaryFile is not implemented in Phase 1",
-      );
+    it("rejects removed speculative operations at decode", async () => {
+      for (const operation of ["exportScene", "importBinaryFile", "zoomToSelection"]) {
+        expect(() => decodeNativeRequest({
+          protocolVersion: 1,
+          id: "request-1",
+          kind: "request",
+          operation,
+          payload: {},
+        })).toThrowError("Unknown bridge operation");
+      }
     });
   });
 

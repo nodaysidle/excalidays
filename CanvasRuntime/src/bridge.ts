@@ -7,10 +7,7 @@ export const nativeOperations = [
   "requestSnapshot",
   "updateTheme",
   "performCommand",
-  "importBinaryFile",
-  "exportScene",
   "zoomToFit",
-  "zoomToSelection",
   "setReadOnly",
   "focusCanvas",
 ] as const;

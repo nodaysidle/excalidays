@@ -164,14 +164,7 @@ final class CanvasSession {
     @discardableResult
     func recreateWebView() -> WKWebView? {
         guard runtimeState != .destroyed else { return nil }
-        webView?.stopLoading()
-        webView?.configuration.userContentController.removeScriptMessageHandler(forName: "excalidays", contentWorld: .page)
-        webView?.navigationDelegate = nil
-        webView?.uiDelegate = nil
-        webView = nil
-        messageHandler = nil
-        navigationCoordinator = nil
-        assetSchemeHandler = nil
+        teardownWebView()
         runtimeState = .loading
         canUndo = false
         canRedo = false
@@ -208,6 +201,12 @@ final class CanvasSession {
 
     func destroy() {
         guard runtimeState != .destroyed else { return }
+        teardownWebView()
+        onDirtyStateChanged = nil
+        runtimeState = .destroyed
+    }
+
+    private func teardownWebView() {
         webView?.stopLoading()
         webView?.configuration.userContentController.removeScriptMessageHandler(forName: "excalidays", contentWorld: .page)
         webView?.navigationDelegate = nil
@@ -216,8 +215,6 @@ final class CanvasSession {
         messageHandler = nil
         navigationCoordinator = nil
         assetSchemeHandler = nil
-        onDirtyStateChanged = nil
-        runtimeState = .destroyed
     }
 
     private func send(operation: CanvasBridgeOperation, payload: [String: Any] = [:]) async throws -> [String: Any] {
@@ -247,13 +244,16 @@ final class CanvasSession {
     }
 
     func reportError(_ message: String) {
-        guard runtimeState != .destroyed else { return }
-        runtimeState = .failed(message)
+        fail(message)
     }
 
     func reportCrash() {
+        fail("Canvas process terminated unexpectedly.")
+    }
+
+    private func fail(_ message: String) {
         guard runtimeState != .destroyed else { return }
-        runtimeState = .failed("Canvas process terminated unexpectedly.")
+        runtimeState = .failed(message)
     }
 }
 

@@ -33,8 +33,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 
-    @objc private func showLibrary(_ sender: Any?) { coordinator.showLibrary() }
-    @objc private func showSettings(_ sender: Any?) { coordinator.showSettings() }
     @objc private func newDrawing(_ sender: Any?) { coordinator.createNewDocumentAndPresentErrors() }
     @objc private func openDrawing(_ sender: Any?) { coordinator.openDocument() }
     @objc private func undoCanvas(_ sender: Any?) { currentDocument?.canvasSession.performCommand("undo") }
@@ -64,9 +62,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         appItem.submenu = appMenu
         appMenu.addItem(withTitle: "About Excalidays", action: #selector(NSApplication.orderFrontStandardAboutPanel(_:)), keyEquivalent: "")
         appMenu.addItem(.separator())
-        let settings = appMenu.addItem(withTitle: "Settings…", action: #selector(showSettings(_:)), keyEquivalent: ",")
-        settings.target = self
-        appMenu.addItem(.separator())
         appMenu.addItem(withTitle: "Hide Excalidays", action: #selector(NSApplication.hide(_:)), keyEquivalent: "h")
         appMenu.addItem(withTitle: "Quit Excalidays", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
 
@@ -78,9 +73,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         newDrawing.target = self
         let openDrawing = fileMenu.addItem(withTitle: "Open…", action: #selector(openDrawing(_:)), keyEquivalent: "o")
         openDrawing.target = self
-        let recent = NSMenuItem(title: "Open Recent", action: nil, keyEquivalent: "")
-        recent.submenu = NSMenu(title: "Open Recent")
-        fileMenu.addItem(recent)
         fileMenu.addItem(.separator())
         fileMenu.addItem(withTitle: "Close", action: #selector(NSWindow.performClose(_:)), keyEquivalent: "w")
         fileMenu.addItem(withTitle: "Save", action: Selector(("saveDocument:")), keyEquivalent: "s")
@@ -90,9 +82,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         fileMenu.addItem(withTitle: "Move To…", action: Selector(("moveDocument:")), keyEquivalent: "")
         fileMenu.addItem(withTitle: "Revert to Saved", action: #selector(NSDocument.revertToSaved(_:)), keyEquivalent: "")
         fileMenu.addItem(withTitle: "Browse All Versions…", action: #selector(NSDocument.browseVersions(_:)), keyEquivalent: "")
-        fileMenu.addItem(.separator())
-        let library = fileMenu.addItem(withTitle: "Show Library", action: #selector(showLibrary(_:)), keyEquivalent: "l")
-        library.target = self
         fileMenu.addItem(.separator())
         fileMenu.addItem(withTitle: "Print…", action: #selector(NSDocument.printDocument(_:)), keyEquivalent: "p")
 

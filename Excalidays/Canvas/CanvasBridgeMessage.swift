@@ -1,5 +1,11 @@
 import Foundation
 
+struct CanvasBridgeError: Error, LocalizedError, Sendable {
+    let message: String
+
+    var errorDescription: String? { message }
+}
+
 enum JSONValue: Codable, Equatable, Sendable {
     case string(String)
     case number(Double)
@@ -36,8 +42,8 @@ enum CanvasBridgeKind: String, Codable, Sendable { case request, response, event
 
 enum CanvasBridgeOperation: String, Codable, Sendable {
     case initialize, loadScene, requestSnapshot, updateTheme, performCommand
-    case importBinaryFile, exportScene, zoomToFit, zoomToSelection, setReadOnly, focusCanvas
-    case ready, dirtyStateChanged, selectionChanged, documentMetadataChanged, commandStateChanged, runtimeError
+    case zoomToFit, setReadOnly, focusCanvas
+    case ready, dirtyStateChanged, commandStateChanged, runtimeError
 }
 
 struct CanvasBridgeMessage: Codable, Equatable, Sendable {
@@ -83,13 +89,13 @@ struct CanvasBridgeMessage: Codable, Equatable, Sendable {
         switch kind {
         case .request:
             return [.initialize, .loadScene, .requestSnapshot, .updateTheme, .performCommand,
-                    .importBinaryFile, .exportScene, .zoomToFit, .zoomToSelection, .setReadOnly,
+                    .zoomToFit, .setReadOnly,
                     .focusCanvas].contains(operation)
         case .event:
-            return [.ready, .dirtyStateChanged, .selectionChanged, .documentMetadataChanged,
+            return [.ready, .dirtyStateChanged,
                     .commandStateChanged, .runtimeError].contains(operation)
         case .response:
-            return ![.ready, .dirtyStateChanged, .selectionChanged, .documentMetadataChanged,
+            return ![.ready, .dirtyStateChanged,
                      .commandStateChanged, .runtimeError].contains(operation)
         }
     }
