@@ -13,10 +13,20 @@ final class CanvasSession {
     }
 
     private(set) var runtimeState: RuntimeState = .loading
-    var onDirty: (() -> Void)?
+    private(set) var canUndo = false
+    private(set) var canRedo = false
+    /// Number of reloads requested through `reloadScene(with:)`.
+    /// Observable seam so tests can assert that a revert pushed a reload.
+    private(set) var sceneReloadCount = 0
+    /// Bumped whenever the web view is recreated (e.g. after a crash), so the
+    /// SwiftUI host can swap the NSView via `.id(...)`.
+    private(set) var webViewID = 0
+    var onDirtyStateChanged: ((Bool) -> Void)?
 
     private var sceneData: Data
     private var webView: WKWebView?
+    /// The live web view, for the SwiftUI host to re-host after recreation.
+    var currentWebView: WKWebView? { webView }
     private var messageHandler: CanvasMessageHandler?
     private var navigationCoordinator: CanvasNavigationCoordinator?
     private var assetSchemeHandler: CanvasAssetSchemeHandler?
@@ -85,7 +95,15 @@ final class CanvasSession {
                 catch { self.runtimeState = .failed(error.localizedDescription) }
             }
         case .dirtyStateChanged:
-            onDirty?()
+            if case let .object(payload) = message.payload,
+               case let .bool(isDirty)? = payload["isDirty"] {
+                onDirtyStateChanged?(isDirty)
+            }
+        case .commandStateChanged:
+            if case let .object(payload) = message.payload {
+                if case let .bool(undoAvailable)? = payload["canUndo"] { canUndo = undoAvailable }
+                if case let .bool(redoAvailable)? = payload["canRedo"] { canRedo = redoAvailable }
+            }
         case .runtimeError:
             let text: String
             if case let .object(payload) = message.payload,
@@ -109,6 +127,49 @@ final class CanvasSession {
             "theme": isDark ? "dark" : "light"
         ])
         sceneData = data
+    }
+
+    /// Reloads the visible canvas from the given scene bytes (revert-to-saved).
+    /// When the runtime is not ready, only the pending scene data is replaced so
+    /// the eventual `.ready` initialization loads the reverted bytes.
+    func reloadScene(with data: Data) async throws {
+        guard runtimeState != .destroyed else { throw DocumentError.canvasUnavailable }
+        sceneReloadCount += 1
+        guard runtimeState == .ready else {
+            sceneData = data
+            return
+        }
+        do {
+            try await loadScene(data, operation: .loadScene)
+        } catch {
+            if runtimeState != .destroyed {
+                runtimeState = .failed(error.localizedDescription)
+            }
+            throw error
+        }
+    }
+
+    /// Recreates the runtime after a failure by reloading the bundled canvas
+    /// page. The `.ready` event re-initializes the scene from `sceneData`.
+    func retryLoad() {
+        guard case .failed = runtimeState else { return }
+        _ = recreateWebView()
+    }
+
+    /// Recreates the WKWebView from scratch and reloads the bundled canvas.
+    /// Reloading an existing web view (load/reload) races the navigation and
+    /// can leave the runtime stuck (WKError "completion handler for function
+    /// call is no longer reachable"), so a fresh web view is the reliable
+    /// recovery path after a web-content-process crash.
+    @discardableResult
+    func recreateWebView() -> WKWebView? {
+        guard runtimeState != .destroyed else { return nil }
+        teardownWebView()
+        runtimeState = .loading
+        canUndo = false
+        canRedo = false
+        webViewID += 1
+        return makeWebView()
     }
 
     func requestSnapshot() async throws -> Data {
@@ -140,6 +201,12 @@ final class CanvasSession {
 
     func destroy() {
         guard runtimeState != .destroyed else { return }
+        teardownWebView()
+        onDirtyStateChanged = nil
+        runtimeState = .destroyed
+    }
+
+    private func teardownWebView() {
         webView?.stopLoading()
         webView?.configuration.userContentController.removeScriptMessageHandler(forName: "excalidays", contentWorld: .page)
         webView?.navigationDelegate = nil
@@ -148,8 +215,6 @@ final class CanvasSession {
         messageHandler = nil
         navigationCoordinator = nil
         assetSchemeHandler = nil
-        onDirty = nil
-        runtimeState = .destroyed
     }
 
     private func send(operation: CanvasBridgeOperation, payload: [String: Any] = [:]) async throws -> [String: Any] {
@@ -179,13 +244,16 @@ final class CanvasSession {
     }
 
     func reportError(_ message: String) {
-        guard runtimeState != .destroyed else { return }
-        runtimeState = .failed(message)
+        fail(message)
     }
 
     func reportCrash() {
+        fail("Canvas process terminated unexpectedly.")
+    }
+
+    private func fail(_ message: String) {
         guard runtimeState != .destroyed else { return }
-        runtimeState = .failed("Canvas process terminated unexpectedly.")
+        runtimeState = .failed(message)
     }
 }
 

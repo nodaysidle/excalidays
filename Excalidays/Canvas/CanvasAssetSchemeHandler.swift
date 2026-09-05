@@ -20,11 +20,12 @@ final class CanvasAssetSchemeHandler: NSObject, WKURLSchemeHandler, @unchecked S
         do {
             let (fileURL, mimeType) = try resolve(urlSchemeTask.request.url)
             let data = try Data(contentsOf: fileURL, options: .mappedIfSafe)
+            let requestURL = urlSchemeTask.request.url
             let response = URLResponse(
-                url: try requireURL(urlSchemeTask.request.url),
+                url: requestURL ?? fileURL,
                 mimeType: mimeType,
                 expectedContentLength: data.count,
-                textEncodingName: isText(mimeType) ? "utf-8" : nil
+                textEncodingName: mimeType.hasPrefix("text/") || mimeType == "application/javascript" || mimeType == "application/json" ? "utf-8" : nil
             )
             urlSchemeTask.didReceive(response)
             urlSchemeTask.didReceive(data)
@@ -37,8 +38,7 @@ final class CanvasAssetSchemeHandler: NSObject, WKURLSchemeHandler, @unchecked S
     func webView(_ webView: WKWebView, stop urlSchemeTask: any WKURLSchemeTask) {}
 
     private func resolve(_ url: URL?) throws -> (URL, String) {
-        let url = try requireURL(url)
-        guard url.scheme == Self.scheme, url.host == Self.host else {
+        guard let url, url.scheme == Self.scheme, url.host == Self.host else {
             throw URLError(.unsupportedURL)
         }
 
@@ -61,14 +61,5 @@ final class CanvasAssetSchemeHandler: NSObject, WKURLSchemeHandler, @unchecked S
 
         let mimeType = UTType(filenameExtension: fileURL.pathExtension)?.preferredMIMEType ?? "application/octet-stream"
         return (fileURL, mimeType)
-    }
-
-    private func requireURL(_ url: URL?) throws -> URL {
-        guard let url else { throw URLError(.badURL) }
-        return url
-    }
-
-    private func isText(_ mimeType: String) -> Bool {
-        mimeType.hasPrefix("text/") || mimeType == "application/javascript" || mimeType == "application/json"
     }
 }

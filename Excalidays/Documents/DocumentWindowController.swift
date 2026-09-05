@@ -5,6 +5,7 @@ import SwiftUI
 final class DocumentWindowController: NSWindowController, NSToolbarDelegate {
     private static let zoomToFitIdentifier = NSToolbarItem.Identifier("com.nodaysidle.excalidays.zoomToFit")
     private static let focusCanvasIdentifier = NSToolbarItem.Identifier("com.nodaysidle.excalidays.focusCanvas")
+    private static let toolbarItemIdentifiers: [NSToolbarItem.Identifier] = [.flexibleSpace, zoomToFitIdentifier, focusCanvasIdentifier]
 
     private let canvasSession: CanvasSession
 
@@ -32,11 +33,11 @@ final class DocumentWindowController: NSWindowController, NSToolbarDelegate {
     required init?(coder: NSCoder) { nil }
 
     func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        [.flexibleSpace, Self.zoomToFitIdentifier, Self.focusCanvasIdentifier]
+        Self.toolbarItemIdentifiers
     }
 
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        [.flexibleSpace, Self.zoomToFitIdentifier, Self.focusCanvasIdentifier]
+        Self.toolbarItemIdentifiers
     }
 
     func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {

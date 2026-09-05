@@ -7,6 +7,7 @@ struct DocumentContentView: View {
         ZStack {
             CanvasView(session: session)
                 .accessibilityLabel("Excalidraw drawing canvas")
+                .id(session.webViewID)
 
             if session.runtimeState != .ready {
                 statusOverlay
@@ -23,7 +24,6 @@ struct DocumentContentView: View {
                 ProgressView()
                     .progressViewStyle(.circular)
                     .scaleEffect(1.0)
-                    .tint(Color(red: 0.41, green: 0.40, blue: 0.86))
 
                 Text("Preparing canvas…")
                     .font(.system(size: 13, weight: .medium))
@@ -38,13 +38,7 @@ struct DocumentContentView: View {
             VStack(spacing: 12) {
                 Image(systemName: "exclamationmark.triangle.fill")
                     .font(.system(size: 28))
-                    .foregroundStyle(
-                        LinearGradient(
-                            colors: [Color.orange, Color.red],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
+                    .foregroundStyle(.secondary)
 
                 Text("Canvas Unavailable")
                     .font(.system(size: 15, weight: .semibold, design: .rounded))
@@ -54,6 +48,13 @@ struct DocumentContentView: View {
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: 320)
+
+                Button("Try Again") {
+                    session.retryLoad()
+                }
+                .buttonStyle(.borderedProminent)
+                .keyboardShortcut(.defaultAction)
+                .accessibilityLabel("Try Again loading the canvas")
             }
             .padding(28)
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
