@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
+    "lint": "oxlint src tests",
     "test": "vitest run",
     "test:watch": "vitest"
   },
@@ -17,6 +18,8 @@
     "@types/react": "18.3.31",
     "@types/react-dom": "18.3.7",
     "@vitejs/plugin-react": "6.1.1",
+    "jsdom": "^30.0.1",
+    "oxlint": "^1.81.0",
     "typescript": "7.0.2",
     "vite": "8.2.2",
     "vitest": "4.1.11"

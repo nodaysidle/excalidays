@@ -13,6 +13,6 @@ export default defineConfig({
     sourcemap: false,
   },
   test: {
-    environment: "node",
+    environment: "jsdom",
   },
 });
