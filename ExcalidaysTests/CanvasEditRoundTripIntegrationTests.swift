@@ -127,6 +127,13 @@ final class CanvasEditRoundTripIntegrationTests: XCTestCase {
         )
         XCTAssertEqual(parsed["source"] as? String, "fixture-source")
 
+        // Embedded binary attachments survive the bridge round-trip.
+        let files = parsed["files"] as? [String: Any]
+        let fixtureFile = files?["fixture-file"] as? [String: Any]
+        XCTAssertNotNil(fixtureFile, "fixture-file was not preserved; files=\(files ?? [:])")
+        XCTAssertEqual(fixtureFile?["mimeType"] as? String, "image/png")
+        XCTAssertTrue((fixtureFile?["dataURL"] as? String)?.hasPrefix("data:image/png;base64,") == true)
+
         session.destroy()
     }
 
@@ -171,13 +178,14 @@ final class CanvasEditRoundTripIntegrationTests: XCTestCase {
 
     // MARK: - FIX 6: Try Again reboots a failed runtime back to ready
 
-    func testRetryAfterReportedFailureResetsToLoading() async throws {
+    func testRetryAfterReportedFailureRebootsRuntimeToReady() async throws {
         let fixture = try fixtureData("minimal.excalidraw")
         let session = CanvasSession(initialSceneData: fixture)
         hostCanvas(session.makeWebView())
 
         // Reach ready first (proves the initial load path), then simulate a crash.
-        _ = try await poll { session.runtimeState == .ready ? true : nil }
+        let firstReady = try await poll { session.runtimeState == .ready ? true : nil }
+        XCTAssertEqual(firstReady, true)
 
         session.reportCrash()
         guard case .failed = session.runtimeState else {
@@ -186,14 +194,20 @@ final class CanvasEditRoundTripIntegrationTests: XCTestCase {
             return
         }
 
-        // FIX 6: retryLoad resets the session to .loading and clears command
-        // availability so the .ready re-init path reloads the scene. (Full
-        // ready recovery after a web-content-process crash is exercised
-        // manually, not in this harness.)
+        // FIX 6: retryLoad recreates the web view and reloads the bundled page
+        // so the runtime re-fires `ready` and recovers to a live canvas.
         session.retryLoad()
         XCTAssertEqual(session.runtimeState, .loading)
         XCTAssertFalse(session.canUndo)
         XCTAssertFalse(session.canRedo)
+
+        // Re-host the recreated web view (in the app SwiftUI swaps it via .id()).
+        if let newWebView = session.currentWebView {
+            hostCanvas(newWebView)
+        }
+
+        let secondReady = try await poll { session.runtimeState == .ready ? true : nil }
+        XCTAssertEqual(secondReady, true, "canvas did not recover after retryLoad")
         session.destroy()
     }
 }

@@ -18,10 +18,15 @@ final class CanvasSession {
     /// Number of reloads requested through `reloadScene(with:)`.
     /// Observable seam so tests can assert that a revert pushed a reload.
     private(set) var sceneReloadCount = 0
+    /// Bumped whenever the web view is recreated (e.g. after a crash), so the
+    /// SwiftUI host can swap the NSView via `.id(...)`.
+    private(set) var webViewID = 0
     var onDirtyStateChanged: ((Bool) -> Void)?
 
     private var sceneData: Data
     private var webView: WKWebView?
+    /// The live web view, for the SwiftUI host to re-host after recreation.
+    var currentWebView: WKWebView? { webView }
     private var messageHandler: CanvasMessageHandler?
     private var navigationCoordinator: CanvasNavigationCoordinator?
     private var assetSchemeHandler: CanvasAssetSchemeHandler?
@@ -147,13 +152,31 @@ final class CanvasSession {
     /// Recreates the runtime after a failure by reloading the bundled canvas
     /// page. The `.ready` event re-initializes the scene from `sceneData`.
     func retryLoad() {
-        guard runtimeState != .destroyed else { return }
-        guard case .failed = runtimeState, let webView else { return }
+        guard case .failed = runtimeState else { return }
+        _ = recreateWebView()
+    }
+
+    /// Recreates the WKWebView from scratch and reloads the bundled canvas.
+    /// Reloading an existing web view (load/reload) races the navigation and
+    /// can leave the runtime stuck (WKError "completion handler for function
+    /// call is no longer reachable"), so a fresh web view is the reliable
+    /// recovery path after a web-content-process crash.
+    @discardableResult
+    func recreateWebView() -> WKWebView? {
+        guard runtimeState != .destroyed else { return nil }
+        webView?.stopLoading()
+        webView?.configuration.userContentController.removeScriptMessageHandler(forName: "excalidays", contentWorld: .page)
+        webView?.navigationDelegate = nil
+        webView?.uiDelegate = nil
+        webView = nil
+        messageHandler = nil
+        navigationCoordinator = nil
+        assetSchemeHandler = nil
         runtimeState = .loading
         canUndo = false
         canRedo = false
-        webView.stopLoading()
-        webView.reload()
+        webViewID += 1
+        return makeWebView()
     }
 
     func requestSnapshot() async throws -> Data {

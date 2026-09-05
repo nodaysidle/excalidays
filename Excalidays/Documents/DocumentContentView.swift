@@ -7,6 +7,7 @@ struct DocumentContentView: View {
         ZStack {
             CanvasView(session: session)
                 .accessibilityLabel("Excalidraw drawing canvas")
+                .id(session.webViewID)
 
             if session.runtimeState != .ready {
                 statusOverlay
