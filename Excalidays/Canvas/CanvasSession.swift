@@ -13,7 +13,12 @@ final class CanvasSession {
     }
 
     private(set) var runtimeState: RuntimeState = .loading
-    var onDirty: (() -> Void)?
+    private(set) var canUndo = false
+    private(set) var canRedo = false
+    /// Number of reloads requested through `reloadScene(with:)`.
+    /// Observable seam so tests can assert that a revert pushed a reload.
+    private(set) var sceneReloadCount = 0
+    var onDirtyStateChanged: ((Bool) -> Void)?
 
     private var sceneData: Data
     private var webView: WKWebView?
@@ -85,7 +90,15 @@ final class CanvasSession {
                 catch { self.runtimeState = .failed(error.localizedDescription) }
             }
         case .dirtyStateChanged:
-            onDirty?()
+            if case let .object(payload) = message.payload,
+               case let .bool(isDirty)? = payload["isDirty"] {
+                onDirtyStateChanged?(isDirty)
+            }
+        case .commandStateChanged:
+            if case let .object(payload) = message.payload {
+                if case let .bool(undoAvailable)? = payload["canUndo"] { canUndo = undoAvailable }
+                if case let .bool(redoAvailable)? = payload["canRedo"] { canRedo = redoAvailable }
+            }
         case .runtimeError:
             let text: String
             if case let .object(payload) = message.payload,
@@ -109,6 +122,38 @@ final class CanvasSession {
             "theme": isDark ? "dark" : "light"
         ])
         sceneData = data
+    }
+
+    /// Reloads the visible canvas from the given scene bytes (revert-to-saved).
+    /// When the runtime is not ready, only the pending scene data is replaced so
+    /// the eventual `.ready` initialization loads the reverted bytes.
+    func reloadScene(with data: Data) async throws {
+        guard runtimeState != .destroyed else { throw DocumentError.canvasUnavailable }
+        sceneReloadCount += 1
+        guard runtimeState == .ready else {
+            sceneData = data
+            return
+        }
+        do {
+            try await loadScene(data, operation: .loadScene)
+        } catch {
+            if runtimeState != .destroyed {
+                runtimeState = .failed(error.localizedDescription)
+            }
+            throw error
+        }
+    }
+
+    /// Recreates the runtime after a failure by reloading the bundled canvas
+    /// page. The `.ready` event re-initializes the scene from `sceneData`.
+    func retryLoad() {
+        guard runtimeState != .destroyed else { return }
+        guard case .failed = runtimeState, let webView else { return }
+        runtimeState = .loading
+        canUndo = false
+        canRedo = false
+        webView.stopLoading()
+        webView.reload()
     }
 
     func requestSnapshot() async throws -> Data {
@@ -148,7 +193,7 @@ final class CanvasSession {
         messageHandler = nil
         navigationCoordinator = nil
         assetSchemeHandler = nil
-        onDirty = nil
+        onDirtyStateChanged = nil
         runtimeState = .destroyed
     }
 

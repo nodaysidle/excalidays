@@ -12,6 +12,7 @@
 		16C1640688D8782766372953 /* CanvasBridgeMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E14B3B4963DE1FF4D0D58 /* CanvasBridgeMessageTests.swift */; };
 		1AD7AE3ECD4657B56ABC1FA9 /* CanvasRuntimeIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1375E724DF517086637C5 /* CanvasRuntimeIntegrationTests.swift */; };
 		24448A291E2BFBF92AB677EF /* ExcalidaysLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9878A199C77DA0D65C1A2A0D /* ExcalidaysLaunchTests.swift */; };
+		2958270BA208589620FC72C7 /* CanvasEditRoundTripIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A25303482789A2DC11E97F7 /* CanvasEditRoundTripIntegrationTests.swift */; };
 		2E9D7E8A961999F34DA39C0F /* CanvasBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD9676FA1CDFC465B48821 /* CanvasBridge.swift */; };
 		34375E3B18AE8F2FA8C96E89 /* DocumentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4D1ACF6246107DC40C037 /* DocumentErrors.swift */; };
 		38FEEDA6B7C175B3340418AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9575D9CA94DBFACDAE604892 /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 		72B4D1ACF6246107DC40C037 /* DocumentErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentErrors.swift; sourceTree = "<group>"; };
 		7C8A42D8A8C2EABCFDADC9E6 /* DocumentRoundTripTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRoundTripTests.swift; sourceTree = "<group>"; };
 		7DD1375E724DF517086637C5 /* CanvasRuntimeIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasRuntimeIntegrationTests.swift; sourceTree = "<group>"; };
+		8A25303482789A2DC11E97F7 /* CanvasEditRoundTripIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasEditRoundTripIntegrationTests.swift; sourceTree = "<group>"; };
 		9575D9CA94DBFACDAE604892 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95C7732A454B42EB48EC1046 /* CanvasSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasSession.swift; sourceTree = "<group>"; };
 		9827CE7AA35B3A4D9DB49F9A /* ExcalidrawCanvas */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ExcalidrawCanvas; path = Excalidays/Resources/ExcalidrawCanvas; sourceTree = SOURCE_ROOT; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				0A9E14B3B4963DE1FF4D0D58 /* CanvasBridgeMessageTests.swift */,
+				8A25303482789A2DC11E97F7 /* CanvasEditRoundTripIntegrationTests.swift */,
 				7DD1375E724DF517086637C5 /* CanvasRuntimeIntegrationTests.swift */,
 				6913F4F0A958869F0AED3131 /* CanvasURLPolicyTests.swift */,
 				50F459B8BD0A8EB9A96B2ADC /* DocumentControllerTests.swift */,
@@ -345,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16C1640688D8782766372953 /* CanvasBridgeMessageTests.swift in Sources */,
+				2958270BA208589620FC72C7 /* CanvasEditRoundTripIntegrationTests.swift in Sources */,
 				1AD7AE3ECD4657B56ABC1FA9 /* CanvasRuntimeIntegrationTests.swift in Sources */,
 				7AC264D0E8EECA8CA4699D4C /* CanvasURLPolicyTests.swift in Sources */,
 				DECE1A922CF6D7EE56C7DDCB /* DocumentControllerTests.swift in Sources */,

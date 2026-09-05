@@ -41,8 +41,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     @objc private func redoCanvas(_ sender: Any?) { currentDocument?.canvasSession.performCommand("redo") }
 
     func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        if menuItem.action == #selector(undoCanvas(_:)) || menuItem.action == #selector(redoCanvas(_:)) {
-            return currentDocument != nil
+        if menuItem.action == #selector(undoCanvas(_:)) {
+            return currentDocument?.canvasSession.canUndo == true
+        }
+        if menuItem.action == #selector(redoCanvas(_:)) {
+            return currentDocument?.canvasSession.canRedo == true
         }
         return true
     }

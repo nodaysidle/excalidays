@@ -24,7 +24,7 @@ struct SettingsView: View {
                             .font(.system(size: 14, weight: .semibold, design: .rounded))
                     }
 
-                    Text("Drawings stay entirely on this Mac. Excalidays has no account, telemetry, collaboration server, or cloud storage. Network access is completely denied.")
+                    Text("Drawings stay entirely on this Mac. Excalidays has no account, telemetry, collaboration server, or cloud storage. The drawing canvas is a local, offline page with no server, and network access is present only inside the WebKit sandbox (see SECURITY.md).")
                         .font(.system(size: 12, design: .rounded))
                         .foregroundStyle(.secondary)
                         .lineSpacing(2)

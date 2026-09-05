@@ -54,6 +54,14 @@ struct DocumentContentView: View {
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: 320)
+
+                Button("Try Again") {
+                    session.retryLoad()
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(Color(red: 0.41, green: 0.40, blue: 0.86))
+                .keyboardShortcut(.defaultAction)
+                .accessibilityLabel("Try Again loading the canvas")
             }
             .padding(28)
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
