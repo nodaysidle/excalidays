@@ -145,6 +145,25 @@ final class DocumentRoundTripTests: XCTestCase {
         document.close()
     }
 
+    // MARK: - FIX: autosave class getters must be readable off the main thread
+
+    /// AppKit reads these class getters off the main thread during autosave and
+    /// version preservation (`NSDocument_Versioning _preserveContentsIfNecessaryAfterWriting:`).
+    /// They must be nonisolated; otherwise the @objc getter thunk traps with
+    /// `_checkExpectedExecutor` (EXC_BREAKPOINT) when reached from a background queue.
+    func testAutosaveClassGettersAreReadableOffMainThread() async {
+        let (inPlace, drafts, preserves) = await Task.detached(priority: .background) {
+            (
+                ExcalidaysDocument.autosavesInPlace,
+                ExcalidaysDocument.autosavesDrafts,
+                ExcalidaysDocument.preservesVersions
+            )
+        }.value
+        XCTAssertEqual(inPlace, true)
+        XCTAssertEqual(drafts, true)
+        XCTAssertEqual(preserves, true)
+    }
+
     // MARK: - FIX 1: save must never silently persist stale bytes
 
     func testSaveReportsFailureWhenCanvasIsUnavailable() throws {

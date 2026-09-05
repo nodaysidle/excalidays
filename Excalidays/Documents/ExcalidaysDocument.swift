@@ -36,9 +36,14 @@ final class ExcalidaysDocument: NSDocument {
         return session
     }
 
-    override class var autosavesInPlace: Bool { true }
-    override class var autosavesDrafts: Bool { true }
-    override class var preservesVersions: Bool { true }
+    // These class getters must be nonisolated: AppKit reads them off the main
+    // thread during autosave / version preservation (see
+    // NSDocument_Versioning _preserveContentsIfNecessaryAfterWriting:...). When
+    // they carry @MainActor isolation (the default for a @MainActor class), the
+    // ObjC getter thunk traps with _checkExpectedExecutor → EXC_BREAKPOINT.
+    override nonisolated class var autosavesInPlace: Bool { true }
+    override nonisolated class var autosavesDrafts: Bool { true }
+    override nonisolated class var preservesVersions: Bool { true }
 
     override init() {
         super.init()
