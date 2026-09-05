@@ -72,12 +72,14 @@ export class RuntimeState {
   private cleanScene: string | null = null;
   private cleanSignature: string | null = null;
   private originalUnknownFields: Record<string, unknown>;
+  private originalFiles: Record<string, unknown>;
 
   constructor(sceneJSON: string, private readonly onDirtyStateChange: (isDirty: boolean) => void) {
     const parsed = JSON.parse(sceneJSON) as Record<string, unknown>;
     this.originalUnknownFields = Object.fromEntries(
       Object.entries(parsed).filter(([key]) => !PROTECTED_SCENE_KEYS.has(key)),
     );
+    this.originalFiles = (parsed.files as Record<string, unknown>) ?? {};
     this.cleanSignature = extractPersistentSignature(sceneJSON);
   }
 
@@ -91,6 +93,7 @@ export class RuntimeState {
     this.originalUnknownFields = Object.fromEntries(
       Object.entries(parsed).filter(([key]) => !PROTECTED_SCENE_KEYS.has(key)),
     );
+    this.originalFiles = (parsed.files as Record<string, unknown>) ?? {};
     this.cleanSignature = extractPersistentSignature(sceneJSON);
     this.dirty = false;
   }
@@ -144,7 +147,15 @@ export class RuntimeState {
   snapshot(serializedKnownScene: string): string {
     this.assertAlive();
     const known = JSON.parse(serializedKnownScene) as Record<string, unknown>;
-    const merged = { ...known, ...this.originalUnknownFields };
+    const serializerFiles = (known.files as Record<string, unknown> | undefined) ?? {};
+    const merged = {
+      ...known,
+      ...this.originalUnknownFields,
+      // Excalidraw's serializeAsJSON drops embedded binary files (getFiles()
+      // returns empty after loadFromBlob), so preserve the source scene's
+      // files and let any serializer-emitted files win on id conflicts.
+      files: { ...this.originalFiles, ...serializerFiles },
+    };
     const wasDirty = this.dirty;
     this.cleanScene = serializedKnownScene;
     this.cleanSignature = extractPersistentSignature(serializedKnownScene);

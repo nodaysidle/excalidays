@@ -141,7 +141,7 @@ describe("runtime state", () => {
     expect(state.isDirty()).toBe(false);
   });
 
-  it("preserves compatible unknown top-level fields and current attachments", () => {
+  it("preserves compatible unknown top-level fields and merges source + current files", () => {
     const state = new RuntimeState(originalScene, () => undefined);
     const result = JSON.parse(state.snapshot(JSON.stringify({
       type: "excalidraw",
@@ -155,7 +155,25 @@ describe("runtime state", () => {
     expect(result.futureTopLevelField).toEqual({ preserve: true });
     expect(result.source).toBe("fixture");
     expect(result.elements).toHaveLength(1);
-    expect(result.files).toEqual({ current: { id: "current", dataURL: "data:image/png;base64,AQ==" } });
+    expect(result.files).toEqual({
+      image1: { id: "image1", dataURL: "data:image/png;base64,AA==" },
+      current: { id: "current", dataURL: "data:image/png;base64,AQ==" },
+    });
+  });
+
+  it("preserves source-scene files when the serializer drops them (files={})", () => {
+    const state = new RuntimeState(originalScene, () => undefined);
+    // serializeAsJSON(getFiles()) returns an empty files map after loadFromBlob,
+    // so the snapshot must restore the source scene's files.
+    const result = JSON.parse(state.snapshot(JSON.stringify({
+      type: "excalidraw",
+      version: 2,
+      source: "local",
+      elements: [],
+      appState: { viewBackgroundColor: "#ffffff" },
+      files: {},
+    })));
+    expect(result.files).toEqual({ image1: { id: "image1", dataURL: "data:image/png;base64,AA==" } });
   });
 
   it("rejects calls after destruction", () => {
