@@ -58,4 +58,28 @@ final class DocumentControllerTests: XCTestCase {
         XCTAssertEqual(ExcalidaysDocument.readableTypes, ["com.excalidraw.excalidraw"])
         XCTAssertEqual(ExcalidaysDocument.writableTypes, ["com.excalidraw.excalidraw"])
     }
+
+    func testViewAndHelpMenusInstalled() {
+        let delegate = AppDelegate()
+        delegate.applicationDidFinishLaunching(Notification(name: NSApplication.didFinishLaunchingNotification))
+
+        let titles = NSApp.mainMenu?.items.compactMap { $0.submenu?.title } ?? []
+        XCTAssertTrue(titles.contains("View"))
+        XCTAssertTrue(titles.contains("Help"))
+        XCTAssertTrue(titles.contains("File"))
+        XCTAssertTrue(titles.contains("Edit"))
+
+        let viewMenu = NSApp.mainMenu?.items.first(where: { $0.submenu?.title == "View" })?.submenu
+        XCTAssertNotNil(viewMenu?.item(withTitle: "Zoom to Fit"))
+        XCTAssertNotNil(viewMenu?.item(withTitle: "Focus Canvas"))
+        XCTAssertNotNil(viewMenu?.item(withTitle: "Enter Full Screen"))
+
+        let helpMenu = NSApp.mainMenu?.items.first(where: { $0.submenu?.title == "Help" })?.submenu
+        XCTAssertNotNil(helpMenu?.item(withTitle: "Excalidays Help"))
+        XCTAssertNotNil(helpMenu?.item(withTitle: "Report an Issue…"))
+
+        let fileMenu = NSApp.mainMenu?.items.first(where: { $0.submenu?.title == "File" })?.submenu
+        XCTAssertNotNil(fileMenu?.item(withTitle: "Open Recent"))
+    }
+
 }
