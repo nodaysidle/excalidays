@@ -36,9 +36,8 @@ final class AppCoordinator {
         NSDocumentController.shared.openDocument(withContentsOf: url, display: display) { document, _, error in
             if let error {
                 NSAlert(error: error).runModal()
-            } else if document != nil {
-                OrganizerStore.shared.recordOpening(of: url)
             }
+            // Catalog recording happens in ExcalidaysDocument.read/save (avoids double inserts).
             completionHandler?(error)
         }
     }

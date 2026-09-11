@@ -7,22 +7,15 @@ final class OrganizerWindowController: NSWindowController {
 
     init(coordinator: AppCoordinator) {
         self.coordinator = coordinator
-        let store = OrganizerStore.shared
-        let root = OrganizerView(
-            onOpen: { url in
-                coordinator.openDocument(at: url)
-            },
-            onRefresh: {
-                (try? store.fetchRecents()) ?? []
-            },
-            onRemove: { recent in
-                store.remove(recent)
+        let root = OrganizerView { url, stopAccess in
+            coordinator.openDocument(at: url) { _ in
+                stopAccess()
             }
-        )
+        }
         let hosting = NSHostingController(rootView: root)
         let window = NSWindow(contentViewController: hosting)
         window.title = "Organizer"
-        window.setContentSize(NSSize(width: 480, height: 520))
+        window.setContentSize(NSSize(width: 860, height: 560))
         window.styleMask = [.titled, .closable, .miniaturizable, .resizable]
         window.isReleasedWhenClosed = false
         super.init(window: window)
