@@ -84,13 +84,6 @@ final class ExcalidaysDocument: NSDocument {
         try SceneEnvelope(data: sceneStore.read()).data
     }
 
-    override func write(to url: URL, ofType typeName: String) throws {
-        try super.write(to: url, ofType: typeName)
-        MainActor.assumeIsolated {
-            OrganizerStore.shared.recordOpening(of: url)
-        }
-    }
-
     override func save(to url: URL, ofType typeName: String, for saveOperation: NSDocument.SaveOperationType, completionHandler: @escaping (Error?) -> Void) {
         guard let storedCanvasSession else {
             super.save(to: url, ofType: typeName, for: saveOperation, completionHandler: completionHandler)

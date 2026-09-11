@@ -6,7 +6,7 @@ final class OrganizerStoreTests: XCTestCase {
     func testRecordOpeningUpsertsByPathHint() throws {
         let store = OrganizerStore(inMemory: true)
         let dir = FileManager.default.temporaryDirectory
-        let url = dir.appendingPathComponent("organizer-v1-test.excalidraw")
+        let url = dir.appendingPathComponent("organizer-polish-test.excalidraw")
         try Data("{}".utf8).write(to: url)
         defer { try? FileManager.default.removeItem(at: url) }
 
@@ -14,7 +14,26 @@ final class OrganizerStoreTests: XCTestCase {
         store.recordOpening(of: url)
         let recents = try store.fetchRecents()
         XCTAssertEqual(recents.filter { $0.pathHint == url.path }.count, 1)
-        XCTAssertEqual(recents.first?.displayName, "organizer-v1-test")
+        XCTAssertEqual(recents.first?.displayName, "organizer-polish-test")
+    }
+
+    func testFavoriteAndTags() throws {
+        let store = OrganizerStore(inMemory: true)
+        let dir = FileManager.default.temporaryDirectory
+        let url = dir.appendingPathComponent("organizer-tags-test.excalidraw")
+        try Data("{}".utf8).write(to: url)
+        defer { try? FileManager.default.removeItem(at: url) }
+
+        store.recordOpening(of: url)
+        let drawing = try XCTUnwrap(try store.fetchRecents().first)
+        store.toggleFavorite(drawing)
+        store.setTags(drawing, tags: ["Draft", " Client "])
+        XCTAssertTrue(drawing.isFavorite)
+        XCTAssertEqual(drawing.tags, ["Draft", "Client"])
+        let favorites = try store.fetchDrawings(filter: .favorites)
+        XCTAssertEqual(favorites.count, 1)
+        let tagged = try store.fetchDrawings(filter: .tag("draft"))
+        XCTAssertEqual(tagged.count, 1)
     }
 
     func testShowOrganizerMenuActionsExist() {

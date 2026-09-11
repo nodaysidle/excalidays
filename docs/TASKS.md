@@ -20,8 +20,8 @@
 - DONE — Unified single-window application and authentic Excalidraw design system (`AppDelegate.swift`, `runtime.css`).
 
 ## Phase 2 — Finder and organizer
-- PARTIAL — Finder association/double-click and drag/drop (slice 1: existing UTImport + CFBundleDocumentTypes wired through `application(_:open:)` → `NSDocumentController` / same path as File → Open; organizer still not started).
-- PARTIAL — SwiftData organizer v1: recents catalog + open from list via same `NSDocumentController` path (File/Window → Organizer). Favorites, tags, thumbnails, workspaces, missing-files not started.
+- DONE — Finder association/double-click and drag/drop (slice 1: existing UTImport + CFBundleDocumentTypes wired through `application(_:open:)` → `NSDocumentController` / same path as File → Open).
+- PARTIAL — SwiftData organizer: recents + open from list (v1) plus polish — favorites, tags, Quick Look thumbnails, workspace folders, missing-file Locate… recovery. Still a side door into Open (same NSDocument path). Settings not in scope; Phase 2 overall not claimed done until Auditor signs off.
 - DONE — Native menus and toolbar (slice 2: View + Help menus; File Open Recent / Services / Hide Others; Edit Delete; toolbar New/Open + Zoom to Fit + Focus Canvas). Organizer/Settings not in scope.
 
 ## Phase 3 — Import
