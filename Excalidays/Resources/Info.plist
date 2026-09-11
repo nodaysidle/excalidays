@@ -39,6 +39,8 @@
 			<string>$(PRODUCT_MODULE_NAME).ExcalidaysDocument</string>
 		</dict>
 	</array>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
 	<key>NSHighResolutionCapable</key>
 	<true/>
 	<key>UTImportedTypeDeclarations</key>

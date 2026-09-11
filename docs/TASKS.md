@@ -20,7 +20,7 @@
 - DONE — Unified single-window application and authentic Excalidraw design system (`AppDelegate.swift`, `runtime.css`).
 
 ## Phase 2 — Finder and organizer
-- NOT STARTED — Finder association/double-click and drag/drop.
+- PARTIAL — Finder association/double-click and drag/drop (slice 1: existing UTImport + CFBundleDocumentTypes wired through `application(_:open:)` → `NSDocumentController` / same path as File → Open; organizer/menus not started).
 - NOT STARTED — SwiftData catalog, recents, favorites, tags, thumbnails, workspaces, missing files.
 - NOT STARTED — Complete native menus and toolbar.
 

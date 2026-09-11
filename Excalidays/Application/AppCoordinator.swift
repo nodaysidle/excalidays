@@ -23,7 +23,19 @@ final class AppCoordinator {
         }
     }
 
+    /// File → Open… — standard NSDocumentController open panel.
     func openDocument() {
         NSDocumentController.shared.openDocument(nil)
+    }
+
+    /// Finder double-click / drag-drop onto the app icon.
+    /// Same NSDocumentController pipeline as File → Open (no parallel open path).
+    func openDocument(at url: URL, display: Bool = true, completionHandler: ((Error?) -> Void)? = nil) {
+        NSDocumentController.shared.openDocument(withContentsOf: url, display: display) { _, _, error in
+            if let error {
+                NSAlert(error: error).runModal()
+            }
+            completionHandler?(error)
+        }
     }
 }

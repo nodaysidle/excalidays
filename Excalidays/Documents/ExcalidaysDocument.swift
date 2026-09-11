@@ -45,6 +45,11 @@ final class ExcalidaysDocument: NSDocument {
     override nonisolated class var autosavesDrafts: Bool { true }
     override nonisolated class var preservesVersions: Bool { true }
 
+    /// Must stay aligned with Info.plist `LSItemContentTypes` / UTImport `com.excalidraw.excalidraw`.
+    /// nonisolated: AppKit may read these off the main actor (same as autosavesInPlace).
+    override nonisolated class var readableTypes: [String] { ["com.excalidraw.excalidraw"] }
+    override nonisolated class var writableTypes: [String] { ["com.excalidraw.excalidraw"] }
+
     override init() {
         super.init()
         hasUndoManager = false

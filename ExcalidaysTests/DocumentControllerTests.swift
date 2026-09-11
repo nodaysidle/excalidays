@@ -28,4 +28,34 @@ final class DocumentControllerTests: XCTestCase {
         XCTAssertTrue(fileMenu?.item(withTitle: "New Drawing")?.target === delegate)
         XCTAssertTrue(fileMenu?.item(withTitle: "Open…")?.target === delegate)
     }
+
+    func testOpenFixtureURLUsesSharedDocumentControllerPath() throws {
+        let fixtureURL = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .appendingPathComponent("Fixtures", isDirectory: true)
+            .appendingPathComponent("minimal.excalidraw")
+        XCTAssertTrue(FileManager.default.fileExists(atPath: fixtureURL.path), "missing fixture \(fixtureURL.path)")
+
+        let expectation = expectation(description: "openDocument via NSDocumentController")
+        var opened: NSDocument?
+        var openError: Error?
+
+        NSDocumentController.shared.openDocument(withContentsOf: fixtureURL, display: false) { document, _, error in
+            opened = document
+            openError = error
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 5)
+
+        XCTAssertNil(openError)
+        let document = try XCTUnwrap(opened as? ExcalidaysDocument)
+        XCTAssertTrue(NSDocumentController.shared.documents.contains { $0 === document })
+        document.close()
+    }
+
+    func testExcalidaysDocumentDeclaresExcalidrawReadableWritableTypes() {
+        XCTAssertEqual(ExcalidaysDocument.readableTypes, ["com.excalidraw.excalidraw"])
+        XCTAssertEqual(ExcalidaysDocument.writableTypes, ["com.excalidraw.excalidraw"])
+    }
 }

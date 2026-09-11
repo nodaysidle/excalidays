@@ -33,6 +33,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 
+    /// Finder double-click and drag-drop onto the app: one NSDocumentController open path
+    /// (same as File → Open after the panel chooses a URL). Do not invent a second pipeline.
+    func application(_ application: NSApplication, open urls: [URL]) {
+        for url in urls {
+            coordinator.openDocument(at: url)
+        }
+    }
+
     @objc private func newDrawing(_ sender: Any?) { coordinator.createNewDocumentAndPresentErrors() }
     @objc private func openDrawing(_ sender: Any?) { coordinator.openDocument() }
     @objc private func undoCanvas(_ sender: Any?) { currentDocument?.canvasSession.performCommand("undo") }
