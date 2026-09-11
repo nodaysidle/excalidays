@@ -28,6 +28,7 @@
 		D18CE1B110BB5990570DA8B3 /* ExcalidaysDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28CDF58D0D73478104E1AF /* ExcalidaysDocument.swift */; };
 		D6ED33914CB9F8532B284F5B /* DocumentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568B42AE91982EF8A41387D /* DocumentTypes.swift */; };
 		DECE1A922CF6D7EE56C7DDCB /* DocumentControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F459B8BD0A8EB9A96B2ADC /* DocumentControllerTests.swift */; };
+		E0DCAA93515F65982E0BE65E /* UTType+Excalidraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0842E837113C2C812C9D9C86 /* UTType+Excalidraw.swift */; };
 		F0AB64702D59EF980DFF1B02 /* CanvasURLPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7CE2871662BBF289A240F1 /* CanvasURLPolicy.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0842E837113C2C812C9D9C86 /* UTType+Excalidraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UTType+Excalidraw.swift"; sourceTree = "<group>"; };
 		0A9E14B3B4963DE1FF4D0D58 /* CanvasBridgeMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasBridgeMessageTests.swift; sourceTree = "<group>"; };
 		14B030215DF5F9CD605F94E1 /* CanvasBridgeMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasBridgeMessage.swift; sourceTree = "<group>"; };
 		167CA8165773CF6F825FC4D6 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				A568B42AE91982EF8A41387D /* DocumentTypes.swift */,
 				B2430D33D95A03A72102F4F7 /* DocumentWindowController.swift */,
 				AC28CDF58D0D73478104E1AF /* ExcalidaysDocument.swift */,
+				0842E837113C2C812C9D9C86 /* UTType+Excalidraw.swift */,
 			);
 			path = Documents;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				D6ED33914CB9F8532B284F5B /* DocumentTypes.swift in Sources */,
 				5669C8B7EDB369F781B544A1 /* DocumentWindowController.swift in Sources */,
 				D18CE1B110BB5990570DA8B3 /* ExcalidaysDocument.swift in Sources */,
+				E0DCAA93515F65982E0BE65E /* UTType+Excalidraw.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
