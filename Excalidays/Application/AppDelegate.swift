@@ -55,6 +55,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         NSWorkspace.shared.open(url)
     }
 
+    @objc func showOrganizer(_ sender: Any?) { coordinator.showOrganizer() }
+
     @objc func openGitHubIssues(_ sender: Any?) {
         guard let url = URL(string: "https://github.com/nodaysidle/excalidays/issues") else { return }
         NSWorkspace.shared.open(url)
@@ -129,6 +131,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         openRecent.submenu = recentMenu
         // NSDocumentController populates the Open Recent submenu automatically.
 
+        let organizer = fileMenu.addItem(withTitle: "Show Organizer", action: #selector(showOrganizer(_:)), keyEquivalent: "o")
+        organizer.keyEquivalentModifierMask = [.command, .shift]
+        organizer.target = self
+
         fileMenu.addItem(.separator())
         fileMenu.addItem(withTitle: "Close", action: #selector(NSWindow.performClose(_:)), keyEquivalent: "w")
         fileMenu.addItem(withTitle: "Save", action: Selector(("saveDocument:")), keyEquivalent: "s")
@@ -184,6 +190,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         windowItem.submenu = windowMenu
         windowMenu.addItem(withTitle: "Minimize", action: #selector(NSWindow.performMiniaturize(_:)), keyEquivalent: "m")
         windowMenu.addItem(withTitle: "Zoom", action: #selector(NSWindow.performZoom(_:)), keyEquivalent: "")
+        windowMenu.addItem(.separator())
+        let organizer = windowMenu.addItem(withTitle: "Organizer", action: #selector(showOrganizer(_:)), keyEquivalent: "1")
+        organizer.keyEquivalentModifierMask = [.command, .shift]
+        organizer.target = self
         windowMenu.addItem(.separator())
         windowMenu.addItem(withTitle: "Bring All to Front", action: #selector(NSApplication.arrangeInFront(_:)), keyEquivalent: "")
         NSApp.windowsMenu = windowMenu

@@ -2,6 +2,8 @@ import AppKit
 
 @MainActor
 final class AppCoordinator {
+    private var organizerWindowController: OrganizerWindowController?
+
     @discardableResult
     func createNewDocument() throws -> ExcalidaysDocument {
         let controller = NSDocumentController.shared
@@ -28,14 +30,24 @@ final class AppCoordinator {
         NSDocumentController.shared.openDocument(nil)
     }
 
-    /// Finder double-click / drag-drop onto the app icon.
+    /// Finder double-click / drag-drop / Organizer recents.
     /// Same NSDocumentController pipeline as File → Open (no parallel open path).
     func openDocument(at url: URL, display: Bool = true, completionHandler: ((Error?) -> Void)? = nil) {
-        NSDocumentController.shared.openDocument(withContentsOf: url, display: display) { _, _, error in
+        NSDocumentController.shared.openDocument(withContentsOf: url, display: display) { document, _, error in
             if let error {
                 NSAlert(error: error).runModal()
+            } else if document != nil {
+                OrganizerStore.shared.recordOpening(of: url)
             }
             completionHandler?(error)
         }
+    }
+
+    /// Side door: recents list that opens via `openDocument(at:)` — never replaces the document window.
+    func showOrganizer() {
+        if organizerWindowController == nil {
+            organizerWindowController = OrganizerWindowController(coordinator: self)
+        }
+        organizerWindowController?.showOrganizer()
     }
 }

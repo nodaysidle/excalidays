@@ -68,6 +68,9 @@ final class ExcalidaysDocument: NSDocument {
         // never the initial open (session still nil at read time).
         MainActor.assumeIsolated {
             self.canvasDirty = false
+            if let fileURL = self.fileURL {
+                OrganizerStore.shared.recordOpening(of: fileURL)
+            }
             guard let session = self.storedCanvasSession else { return }
             let revertedScene = envelope.data
             Task { [weak session] in
@@ -79,6 +82,13 @@ final class ExcalidaysDocument: NSDocument {
 
     override func data(ofType typeName: String) throws -> Data {
         try SceneEnvelope(data: sceneStore.read()).data
+    }
+
+    override func write(to url: URL, ofType typeName: String) throws {
+        try super.write(to: url, ofType: typeName)
+        MainActor.assumeIsolated {
+            OrganizerStore.shared.recordOpening(of: url)
+        }
     }
 
     override func save(to url: URL, ofType typeName: String, for saveOperation: NSDocument.SaveOperationType, completionHandler: @escaping (Error?) -> Void) {
@@ -142,7 +152,12 @@ final class ExcalidaysDocument: NSDocument {
     }
 
     private func continueSaving(to url: URL, ofType typeName: String, for saveOperation: NSDocument.SaveOperationType, completionHandler: @escaping (Error?) -> Void) {
-        super.save(to: url, ofType: typeName, for: saveOperation, completionHandler: completionHandler)
+        super.save(to: url, ofType: typeName, for: saveOperation) { error in
+            if error == nil {
+                OrganizerStore.shared.recordOpening(of: url)
+            }
+            completionHandler(error)
+        }
     }
 
     override func close() {

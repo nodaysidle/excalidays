@@ -10,6 +10,7 @@
 		08B27C3548719C7EB6AEEDE9 /* CanvasSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7732A454B42EB48EC1046 /* CanvasSession.swift */; };
 		16C1640688D8782766372953 /* CanvasBridgeMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E14B3B4963DE1FF4D0D58 /* CanvasBridgeMessageTests.swift */; };
 		1AD7AE3ECD4657B56ABC1FA9 /* CanvasRuntimeIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1375E724DF517086637C5 /* CanvasRuntimeIntegrationTests.swift */; };
+		1CB43B20CBCF96222F8E715C /* OrganizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F54FDBE627C8C2F57291F /* OrganizerView.swift */; };
 		24448A291E2BFBF92AB677EF /* ExcalidaysLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9878A199C77DA0D65C1A2A0D /* ExcalidaysLaunchTests.swift */; };
 		2958270BA208589620FC72C7 /* CanvasEditRoundTripIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A25303482789A2DC11E97F7 /* CanvasEditRoundTripIntegrationTests.swift */; };
 		34375E3B18AE8F2FA8C96E89 /* DocumentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4D1ACF6246107DC40C037 /* DocumentErrors.swift */; };
@@ -21,11 +22,15 @@
 		6F018337FFEE03FFF51226A9 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167CA8165773CF6F825FC4D6 /* CanvasView.swift */; };
 		715A6CBB8121738122E9B5A7 /* DocumentRoundTripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A42D8A8C2EABCFDADC9E6 /* DocumentRoundTripTests.swift */; };
 		7AC264D0E8EECA8CA4699D4C /* CanvasURLPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913F4F0A958869F0AED3131 /* CanvasURLPolicyTests.swift */; };
+		7C94721DBB137E5D015C6477 /* OrganizerWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54D3F01D0DA71F7EF2E1741 /* OrganizerWindowController.swift */; };
+		7D769E6871DE40D89724C874 /* RecentDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC76F10AA135A6FFCFE7267E /* RecentDrawing.swift */; };
 		9B5D305EA785518DC725C120 /* CanvasBridgeMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B030215DF5F9CD605F94E1 /* CanvasBridgeMessage.swift */; };
 		A5E4B81FC14E2B4DC390ECAC /* CanvasAssetSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BADDF59E30648BCA00EC8D /* CanvasAssetSchemeHandler.swift */; };
 		B3169511F16618A44144A153 /* SceneEnvelopeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9C066FC6D8E06655F766E /* SceneEnvelopeTests.swift */; };
 		B3D0678327CAC6955899D81C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6C61AB252A42936D370B359 /* Assets.xcassets */; };
+		CD0A9DC6D794F1132DDA659B /* OrganizerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7A3A4D2B59293F72623A6C /* OrganizerStore.swift */; };
 		D18CE1B110BB5990570DA8B3 /* ExcalidaysDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28CDF58D0D73478104E1AF /* ExcalidaysDocument.swift */; };
+		D34E47CC952F7618DD4006CD /* OrganizerStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CFC841AEB4C8B77A56845E /* OrganizerStoreTests.swift */; };
 		D6ED33914CB9F8532B284F5B /* DocumentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568B42AE91982EF8A41387D /* DocumentTypes.swift */; };
 		DECE1A922CF6D7EE56C7DDCB /* DocumentControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F459B8BD0A8EB9A96B2ADC /* DocumentControllerTests.swift */; };
 		E0DCAA93515F65982E0BE65E /* UTType+Excalidraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0842E837113C2C812C9D9C86 /* UTType+Excalidraw.swift */; };
@@ -57,11 +62,13 @@
 		1D4A3544CC7FCA72F98807ED /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		21DCCBCF2933328018BBCB54 /* Excalidays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Excalidays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38A9C066FC6D8E06655F766E /* SceneEnvelopeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneEnvelopeTests.swift; sourceTree = "<group>"; };
+		43CFC841AEB4C8B77A56845E /* OrganizerStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizerStoreTests.swift; sourceTree = "<group>"; };
 		50F459B8BD0A8EB9A96B2ADC /* DocumentControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentControllerTests.swift; sourceTree = "<group>"; };
 		5C7CE2871662BBF289A240F1 /* CanvasURLPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasURLPolicy.swift; sourceTree = "<group>"; };
 		68BADDF59E30648BCA00EC8D /* CanvasAssetSchemeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasAssetSchemeHandler.swift; sourceTree = "<group>"; };
 		6913F4F0A958869F0AED3131 /* CanvasURLPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasURLPolicyTests.swift; sourceTree = "<group>"; };
 		72B4D1ACF6246107DC40C037 /* DocumentErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentErrors.swift; sourceTree = "<group>"; };
+		738F54FDBE627C8C2F57291F /* OrganizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizerView.swift; sourceTree = "<group>"; };
 		7C8A42D8A8C2EABCFDADC9E6 /* DocumentRoundTripTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRoundTripTests.swift; sourceTree = "<group>"; };
 		7DD1375E724DF517086637C5 /* CanvasRuntimeIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasRuntimeIntegrationTests.swift; sourceTree = "<group>"; };
 		8A25303482789A2DC11E97F7 /* CanvasEditRoundTripIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasEditRoundTripIntegrationTests.swift; sourceTree = "<group>"; };
@@ -72,10 +79,13 @@
 		A568B42AE91982EF8A41387D /* DocumentTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTypes.swift; sourceTree = "<group>"; };
 		AC28CDF58D0D73478104E1AF /* ExcalidaysDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcalidaysDocument.swift; sourceTree = "<group>"; };
 		B2430D33D95A03A72102F4F7 /* DocumentWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentWindowController.swift; sourceTree = "<group>"; };
+		B54D3F01D0DA71F7EF2E1741 /* OrganizerWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizerWindowController.swift; sourceTree = "<group>"; };
 		C6C61AB252A42936D370B359 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0FB85DCFA74871D39729567 /* ExcalidaysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExcalidaysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D371BC8E662EEC168D7CF165 /* DocumentContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentContentView.swift; sourceTree = "<group>"; };
+		DC76F10AA135A6FFCFE7267E /* RecentDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentDrawing.swift; sourceTree = "<group>"; };
 		E6F85998AC2447BF3E8EC01D /* ExcalidaysUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExcalidaysUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE7A3A4D2B59293F72623A6C /* OrganizerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizerStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -99,6 +109,7 @@
 				6913F4F0A958869F0AED3131 /* CanvasURLPolicyTests.swift */,
 				50F459B8BD0A8EB9A96B2ADC /* DocumentControllerTests.swift */,
 				7C8A42D8A8C2EABCFDADC9E6 /* DocumentRoundTripTests.swift */,
+				43CFC841AEB4C8B77A56845E /* OrganizerStoreTests.swift */,
 				38A9C066FC6D8E06655F766E /* SceneEnvelopeTests.swift */,
 			);
 			path = ExcalidaysTests;
@@ -133,6 +144,17 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		8F3BDA39E571C052F7CBF7DE /* Organizer */ = {
+			isa = PBXGroup;
+			children = (
+				FE7A3A4D2B59293F72623A6C /* OrganizerStore.swift */,
+				738F54FDBE627C8C2F57291F /* OrganizerView.swift */,
+				B54D3F01D0DA71F7EF2E1741 /* OrganizerWindowController.swift */,
+				DC76F10AA135A6FFCFE7267E /* RecentDrawing.swift */,
+			);
+			path = Organizer;
+			sourceTree = "<group>";
+		};
 		968856D0738B6525EAF0EB69 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +179,7 @@
 				8DF2407BA8F50FE4E84A803B /* Application */,
 				2EBEB0BC219B2DA991F3E174 /* Canvas */,
 				FC0434CDFD30056FBD643D1D /* Documents */,
+				8F3BDA39E571C052F7CBF7DE /* Organizer */,
 				968856D0738B6525EAF0EB69 /* Resources */,
 			);
 			path = Excalidays;
@@ -303,6 +326,10 @@
 				D6ED33914CB9F8532B284F5B /* DocumentTypes.swift in Sources */,
 				5669C8B7EDB369F781B544A1 /* DocumentWindowController.swift in Sources */,
 				D18CE1B110BB5990570DA8B3 /* ExcalidaysDocument.swift in Sources */,
+				CD0A9DC6D794F1132DDA659B /* OrganizerStore.swift in Sources */,
+				1CB43B20CBCF96222F8E715C /* OrganizerView.swift in Sources */,
+				7C94721DBB137E5D015C6477 /* OrganizerWindowController.swift in Sources */,
+				7D769E6871DE40D89724C874 /* RecentDrawing.swift in Sources */,
 				E0DCAA93515F65982E0BE65E /* UTType+Excalidraw.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +352,7 @@
 				7AC264D0E8EECA8CA4699D4C /* CanvasURLPolicyTests.swift in Sources */,
 				DECE1A922CF6D7EE56C7DDCB /* DocumentControllerTests.swift in Sources */,
 				715A6CBB8121738122E9B5A7 /* DocumentRoundTripTests.swift in Sources */,
+				D34E47CC952F7618DD4006CD /* OrganizerStoreTests.swift in Sources */,
 				B3169511F16618A44144A153 /* SceneEnvelopeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
