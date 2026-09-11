@@ -21,7 +21,7 @@
 
 ## Phase 2 — Finder and organizer
 - PARTIAL — Finder association/double-click and drag/drop (slice 1: existing UTImport + CFBundleDocumentTypes wired through `application(_:open:)` → `NSDocumentController` / same path as File → Open; organizer still not started).
-- NOT STARTED — SwiftData catalog, recents, favorites, tags, thumbnails, workspaces, missing files.
+- PARTIAL — SwiftData organizer v1: recents catalog + open from list via same `NSDocumentController` path (File/Window → Organizer). Favorites, tags, thumbnails, workspaces, missing-files not started.
 - DONE — Native menus and toolbar (slice 2: View + Help menus; File Open Recent / Services / Hide Others; Edit Delete; toolbar New/Open + Zoom to Fit + Focus Canvas). Organizer/Settings not in scope.
 
 ## Phase 3 — Import
