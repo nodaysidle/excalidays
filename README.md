@@ -22,6 +22,8 @@
   </p>
 </div>
 
+<p align="center"><em><code>main</code> is ahead of the public <strong>v0.1.0</strong> DMG. That download is still Phase 0/1 only — not a Phase 2 release.</em></p>
+
 <p align="center">
   <img src="docs/screenshots/packaged-release-working.png" width="720" alt="Excalidays editing an Excalidraw document on macOS">
 </p>
@@ -59,11 +61,11 @@ New / Open .excalidraw
 
 ## What it does **not** (yet)
 
-Phases **2–7 are not started** as product features:
+Phases **2–7** are not shipped as product releases:
 
 | Phase | Not shipped |
 |---|---|
-| **2** | Finder polish, organizer (recents/favorites/tags/workspaces), full menus/toolbar |
+| **2** | **Not a shipped release.** On `main` only: Finder open path **PARTIAL**; native menus/toolbar present; Organizer is a local catalog **side door into Open** (**PARTIAL**). Settings still out. Phase 2 overall **not done**. |
 | **3** | Image / SVG / PDF import workflows |
 | **4** | PNG / SVG / PDF / pasteboard export workflows |
 | **5** | In-app history / checkpoints |
@@ -72,7 +74,7 @@ Phases **2–7 are not started** as product features:
 
 Also out of scope forever for this product shape: **accounts, cloud sync, collaboration, analytics, AI drawing, iOS / mobile**.
 
-Scaffolded library/settings UI is not a completed organizer or settings product.
+Organizer on `main` is a local SwiftData catalog side door into Open (recents / favorites / tags / thumbs / workspaces where present). It is **not** Settings, **not** sync, and **not** a completed Phase 2 product. The public **v0.1.0** DMG does not include it.
 
 
 ## Format truth
