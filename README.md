@@ -111,6 +111,7 @@ Public **v0.1.0** ships an ad-hoc signed DMG (not notarized).
 - **Download:** [`Excalidays-0.1.0.dmg`](https://github.com/nodaysidle/excalidays/releases/download/v0.1.0/Excalidays-0.1.0.dmg)
 - **Release page:** https://github.com/nodaysidle/excalidays/releases/tag/v0.1.0
 - **Tag:** `v0.1.0`
+- **SHA-256:** `3754b52338f6c8262a794413d12c43a708b0a8dfe002d3d39156e764570f2d56` (21,690,436 bytes) — verify with `shasum -a 256 Excalidays-0.1.0.dmg`
 - First launch on a fresh Mac: Control-click — **Open** — confirm (Gatekeeper + ad-hoc signature).
 
 ## Build from source
